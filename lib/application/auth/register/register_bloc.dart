@@ -14,9 +14,12 @@ part 'register_state.dart';
 
 @Injectable()
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
-  RegisterBloc() : super(RegisterState.initial()) {
-    on<RegisterEvent>((event, emit) {
-      event.map(
+  IAuthRepository _authRepository;
+  RegisterBloc(
+    this._authRepository,
+  ) : super(RegisterState.initial()) {
+    on<RegisterEvent>((event, emit) async {
+      await event.map(
         fullnameChanged: (e) {
           emit(state.copyWith(fullName: FullName(e.fullnameStr)));
         },
@@ -30,7 +33,23 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           emit(state.copyWith(password: Password(e.passwordStr)));
         },
         register: (e) async {
-          emit(state.copyWith(showErrors: true, failureorsuccess: none()));
+          emit(state.copyWith(isloading: true, showErrors: false, failureorsuccess: none()));
+          bool formIsValid = state.emailAdress.value
+              .andThen(state.fullName.value)
+              .andThen(state.password.value)
+              .andThen(state.phoneNumber.value)
+              .fold((l) => false, (r) => true);
+          if (!formIsValid) {
+            emit(state.copyWith(isloading: false, showErrors: true));
+          } else {
+            Either<AuthFailure, Unit> failureorSuccess = await _authRepository.register(
+              emailAdress: state.emailAdress,
+              password: state.password,
+              phoneNumber: state.phoneNumber,
+              fullName: state.fullName,
+            );
+            emit(state.copyWith(isloading: false, failureorsuccess: Some(failureorSuccess)));
+          }
         },
       );
     });

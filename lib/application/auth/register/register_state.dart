@@ -9,6 +9,7 @@ class RegisterState {
     required this.fullName,
     required this.showErrors,
     required this.failureorsuccess,
+    required this.isloading,
   });
 
   final EmailAdress emailAdress;
@@ -17,6 +18,7 @@ class RegisterState {
   final FullName fullName;
   final bool showErrors;
   final Option<Either<AuthFailure, Unit>> failureorsuccess;
+  final bool isloading;
 
   factory RegisterState.initial() => RegisterState(
         emailAdress: EmailAdress(''),
@@ -25,6 +27,7 @@ class RegisterState {
         fullName: FullName(''),
         showErrors: false,
         failureorsuccess: none(),
+        isloading: false,
       );
 
   @override
@@ -36,7 +39,8 @@ class RegisterState {
         other.phoneNumber == phoneNumber &&
         other.fullName == fullName &&
         other.showErrors == showErrors &&
-        other.failureorsuccess == failureorsuccess;
+        other.failureorsuccess == failureorsuccess &&
+        other.isloading == isloading;
   }
 
   @override
@@ -46,12 +50,13 @@ class RegisterState {
         phoneNumber.hashCode ^
         fullName.hashCode ^
         showErrors.hashCode ^
-        failureorsuccess.hashCode;
+        failureorsuccess.hashCode ^
+        isloading.hashCode;
   }
 
   @override
   String toString() {
-    return 'RegisterState(emailAdress: $emailAdress, password: $password, phoneNumber: $phoneNumber, fullName: $fullName, showErrors: $showErrors, failureorsuccess: $failureorsuccess)';
+    return 'RegisterState(emailAdress: $emailAdress, password: $password, phoneNumber: $phoneNumber, fullName: $fullName, showErrors: $showErrors, failureorsuccess: $failureorsuccess, isloading: $isloading)';
   }
 
   RegisterState copyWith({
@@ -61,6 +66,7 @@ class RegisterState {
     FullName? fullName,
     bool? showErrors,
     Option<Either<AuthFailure, Unit>>? failureorsuccess,
+    bool? isloading,
   }) {
     return RegisterState(
       emailAdress: emailAdress ?? this.emailAdress,
@@ -69,6 +75,7 @@ class RegisterState {
       fullName: fullName ?? this.fullName,
       showErrors: showErrors ?? this.showErrors,
       failureorsuccess: failureorsuccess ?? this.failureorsuccess,
+      isloading: isloading ?? this.isloading,
     );
   }
 }

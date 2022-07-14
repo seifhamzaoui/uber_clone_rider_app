@@ -24,8 +24,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   final registerModule = _$RegisterModule();
   gh.factory<_i3.FirebaseAuth>(() => registerModule.auth);
   gh.factory<_i4.FirebaseDatabase>(() => registerModule.database);
-  gh.lazySingleton<_i5.IAuthRepository>(() => _i6.AuthRepository());
-  gh.factory<_i7.RegisterBloc>(() => _i7.RegisterBloc());
+  gh.lazySingleton<_i5.IAuthRepository>(() =>
+      _i6.AuthRepository(get<_i3.FirebaseAuth>(), get<_i4.FirebaseDatabase>()));
+  gh.factory<_i7.RegisterBloc>(
+      () => _i7.RegisterBloc(get<_i5.IAuthRepository>()));
   gh.factory<_i8.SignInBloc>(() => _i8.SignInBloc());
   return get;
 }

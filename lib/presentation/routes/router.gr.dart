@@ -32,8 +32,10 @@ class AppRouter extends _i4.RootStackRouter {
           routeData: routeData, child: const _i2.SignInPage());
     },
     RegisterPageRoute.name: (routeData) {
+      final args = routeData.argsAs<RegisterPageRouteArgs>(
+          orElse: () => const RegisterPageRouteArgs());
       return _i4.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.RegisterPage());
+          routeData: routeData, child: _i3.RegisterPage(key: args.key));
     }
   };
 
@@ -64,9 +66,21 @@ class SignInPageRoute extends _i4.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.RegisterPage]
-class RegisterPageRoute extends _i4.PageRouteInfo<void> {
-  const RegisterPageRoute()
-      : super(RegisterPageRoute.name, path: '/register-page');
+class RegisterPageRoute extends _i4.PageRouteInfo<RegisterPageRouteArgs> {
+  RegisterPageRoute({_i5.Key? key})
+      : super(RegisterPageRoute.name,
+            path: '/register-page', args: RegisterPageRouteArgs(key: key));
 
   static const String name = 'RegisterPageRoute';
+}
+
+class RegisterPageRouteArgs {
+  const RegisterPageRouteArgs({this.key});
+
+  final _i5.Key? key;
+
+  @override
+  String toString() {
+    return 'RegisterPageRouteArgs{key: $key}';
+  }
 }

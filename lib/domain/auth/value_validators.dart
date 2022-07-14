@@ -12,7 +12,6 @@ Either<ValueFailure<String>, String> validateEmailAdress(String input) {
 }
 
 Either<ValueFailure<String>, String> validateFullName(String input) {
-  print('validate fuul name excuted');
   if (input.isEmpty) {
     return left(ValueFailure<String>.empty(input));
   } else if (input.length > 20) {
