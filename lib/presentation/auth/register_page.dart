@@ -73,6 +73,7 @@ class RegisterPage extends StatelessWidget {
                         ),
                         MaterialButton(
                           onPressed: () {
+                            if (state.isloading) return;
                             BlocProvider.of<RegisterBloc>(context)
                                 .add(const RegisterEvent.register());
                           },

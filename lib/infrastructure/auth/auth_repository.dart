@@ -51,9 +51,21 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signIn(
-      {required EmailAdress emailAdress, required Password password}) {
-    // TODO: implement signIn
-    throw UnimplementedError();
+  Future<Either<AuthFailure, Unit>> signIn({
+    required EmailAdress emailAdress,
+    required Password password,
+  }) async {
+    try {
+      await _auth.signInWithEmailAndPassword(
+          email: emailAdress.getOrCrash(), password: password.getOrCrash());
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found' || e.code == 'wrong-password' || e.code == 'invalid-email')
+        return left(AuthFailure.invalidEmailAndPasswordCombination());
+      else
+        return left(AuthFailure.serverError());
+    } catch (e) {
+      return left(AuthFailure.serverError());
+    }
   }
 }

@@ -28,7 +28,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       _i6.AuthRepository(get<_i3.FirebaseAuth>(), get<_i4.FirebaseDatabase>()));
   gh.factory<_i7.RegisterBloc>(
       () => _i7.RegisterBloc(get<_i5.IAuthRepository>()));
-  gh.factory<_i8.SignInBloc>(() => _i8.SignInBloc());
+  gh.factory<_i8.SignInBloc>(() => _i8.SignInBloc(get<_i5.IAuthRepository>()));
   return get;
 }
 
