@@ -7,11 +7,11 @@ import 'package:uber_clone/presentation/splash.dart';
   replaceInRouteName: 'splashScreen',
   routes: <AutoRoute>[
     AutoRoute(
+      initial: true,
       page: SplashScreen,
     ),
     AutoRoute(
       page: SignInPage,
-      initial: true,
     ),
     AutoRoute(page: RegisterPage)
   ],

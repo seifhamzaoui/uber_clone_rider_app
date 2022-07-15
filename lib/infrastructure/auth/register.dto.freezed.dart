@@ -148,13 +148,14 @@ class __$$_RegisterDtoCopyWithImpl<$Res> extends _$RegisterDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RegisterDto implements _RegisterDto {
+class _$_RegisterDto extends _RegisterDto {
   const _$_RegisterDto(
       {@JsonKey(ignore: true) this.userId = '',
       required this.fullName,
       required this.email,
       required this.phone,
-      @JsonKey(ignore: true) this.password = ''});
+      @JsonKey(ignore: true) this.password = ''})
+      : super._();
 
   factory _$_RegisterDto.fromJson(Map<String, dynamic> json) =>
       _$$_RegisterDtoFromJson(json);
@@ -210,13 +211,14 @@ class _$_RegisterDto implements _RegisterDto {
   }
 }
 
-abstract class _RegisterDto implements RegisterDto {
+abstract class _RegisterDto extends RegisterDto {
   const factory _RegisterDto(
       {@JsonKey(ignore: true) final String userId,
       required final String fullName,
       required final String email,
       required final String phone,
       @JsonKey(ignore: true) final String password}) = _$_RegisterDto;
+  const _RegisterDto._() : super._();
 
   factory _RegisterDto.fromJson(Map<String, dynamic> json) =
       _$_RegisterDto.fromJson;

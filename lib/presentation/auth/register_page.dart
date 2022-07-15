@@ -122,11 +122,6 @@ class RegisterPage extends StatelessWidget {
   }
 }
 
-final password = 'Seif2000@';
-final email = 'Seifhamz232@gmail.com';
-final phone = "0559201510";
-final name = 'seif hamzaoui';
-
 class PasswordTextField extends StatelessWidget {
   const PasswordTextField({
     Key? key,
@@ -135,7 +130,6 @@ class PasswordTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: password,
       obscureText: true,
       keyboardType: TextInputType.visiblePassword,
       decoration: const InputDecoration(
@@ -169,7 +163,6 @@ class PhoneTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: phone,
       keyboardType: TextInputType.phone,
       decoration: const InputDecoration(
         labelText: 'phone number',
@@ -199,7 +192,6 @@ class EmailTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: email,
       keyboardType: TextInputType.emailAddress,
       decoration: const InputDecoration(
         labelText: 'Email adress',
@@ -229,7 +221,6 @@ class FullNameTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      initialValue: name,
       decoration: const InputDecoration(
         labelText: 'Full name',
         labelStyle: TextStyle(fontFamily: 'Bolt-regular', fontSize: 14),

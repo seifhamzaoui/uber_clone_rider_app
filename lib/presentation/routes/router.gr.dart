@@ -41,8 +41,8 @@ class AppRouter extends _i4.RootStackRouter {
 
   @override
   List<_i4.RouteConfig> get routes => [
-        _i4.RouteConfig(SplashScreenRoute.name, path: '/splash-screen'),
-        _i4.RouteConfig(SignInPageRoute.name, path: '/'),
+        _i4.RouteConfig(SplashScreenRoute.name, path: '/'),
+        _i4.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
         _i4.RouteConfig(RegisterPageRoute.name, path: '/register-page')
       ];
 }
@@ -50,8 +50,7 @@ class AppRouter extends _i4.RootStackRouter {
 /// generated route for
 /// [_i1.SplashScreen]
 class SplashScreenRoute extends _i4.PageRouteInfo<void> {
-  const SplashScreenRoute()
-      : super(SplashScreenRoute.name, path: '/splash-screen');
+  const SplashScreenRoute() : super(SplashScreenRoute.name, path: '/');
 
   static const String name = 'SplashScreenRoute';
 }
@@ -59,7 +58,7 @@ class SplashScreenRoute extends _i4.PageRouteInfo<void> {
 /// generated route for
 /// [_i2.SignInPage]
 class SignInPageRoute extends _i4.PageRouteInfo<void> {
-  const SignInPageRoute() : super(SignInPageRoute.name, path: '/');
+  const SignInPageRoute() : super(SignInPageRoute.name, path: '/sign-in-page');
 
   static const String name = 'SignInPageRoute';
 }

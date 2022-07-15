@@ -40,7 +40,7 @@ dependencies:
   injectable: 
   dartz:
   json_annotation:
-
+  rxdart:
 dev_dependencies:
   build_runner: 
   flutter_lints: 

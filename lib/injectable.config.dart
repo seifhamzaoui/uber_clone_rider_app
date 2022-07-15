@@ -9,12 +9,13 @@ import 'package:firebase_database/firebase_database.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import 'application/auth/auth_bloc/auth_bloc.dart' as _i9;
 import 'application/auth/register/register_bloc.dart' as _i7;
 import 'application/auth/sign_in/sign_in_bloc.dart' as _i8;
 import 'domain/auth/I_auth_repository.dart' as _i5;
 import 'infrastructure/auth/auth_repository.dart' as _i6;
 import 'infrastructure/core/injectable_module.dart'
-    as _i9; // ignore_for_file: unnecessary_lambdas
+    as _i10; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -29,7 +30,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i7.RegisterBloc>(
       () => _i7.RegisterBloc(get<_i5.IAuthRepository>()));
   gh.factory<_i8.SignInBloc>(() => _i8.SignInBloc(get<_i5.IAuthRepository>()));
+  gh.factory<_i9.AuthBloc>(() => _i9.AuthBloc(get<_i5.IAuthRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i9.RegisterModule {}
+class _$RegisterModule extends _i10.RegisterModule {}

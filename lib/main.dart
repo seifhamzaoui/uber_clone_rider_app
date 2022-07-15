@@ -7,13 +7,7 @@ import 'package:uber_clone/presentation/app.dart';
 void main() async {
   configureDependencies();
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.apps.forEach((element) {
-    element.delete();
-  });
   await Firebase.initializeApp();
-  Firebase.apps.forEach(
-    (element) => print(element.name),
-  );
 
   runApp(App());
 }

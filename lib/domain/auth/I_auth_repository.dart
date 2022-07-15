@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:uber_clone/domain/auth/auth_failure.dart';
+import 'package:uber_clone/domain/auth/user_entity.dart';
 import 'package:uber_clone/domain/auth/value_objects.dart';
 
 abstract class IAuthRepository {
@@ -13,4 +14,7 @@ abstract class IAuthRepository {
     required PhoneNumber phoneNumber,
     required FullName fullName,
   });
+
+  Stream<Option<UserEntity>> getCurrentUser();
+  Future<void> signout();
 }

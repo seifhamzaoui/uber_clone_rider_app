@@ -4,6 +4,16 @@ import 'package:uber_clone/domain/auth/value_validators.dart';
 import 'package:uber_clone/domain/core/value_failures/value_failures.dart';
 import 'package:uber_clone/domain/core/value_object.dart';
 
+class UniqueId extends ValueObject<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  UniqueId._(this.value);
+
+  factory UniqueId.fromUniqueId(String id) {
+    return UniqueId._(right(id));
+  }
+}
+
 class EmailAdress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
