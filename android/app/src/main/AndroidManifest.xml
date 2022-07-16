@@ -2,10 +2,13 @@
     package="com.example.uber_clone">
     <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
    <application
         android:label="uber_clone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyDAuasmVqID0kxVVY_SZMuJTK5EtuJYO4Q"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

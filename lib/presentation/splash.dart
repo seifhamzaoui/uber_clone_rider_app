@@ -14,13 +14,11 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('My Main Page')),
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           state.maybeMap(
             authenticated: (s) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('you are logged in')));
+              AutoRouter.of(context).push(HomePageRoute());
             },
             notAuthenticated: (s) {
               AutoRouter.of(context).push(SignInPageRoute());
@@ -39,10 +37,8 @@ class SplashScreen extends StatelessWidget {
             orElse: () {
               return Center(
                   child: OutlinedButton(
-                child: Text('sign out'),
-                onPressed: () {
-                  context.read<AuthBloc>().add(AuthEvent.signout());
-                },
+                child: Text('We try to resolve the app'),
+                onPressed: () {},
               ));
             },
             error: (s) {

@@ -47,7 +47,7 @@ class SigninForm extends StatelessWidget {
                 serverError: () => 'Server error , try again.',
               ),
               context);
-        }, (success) => showSnackbar('Login succes', context));
+        }, (success) => AutoRouter.of(context).push(HomePageRoute()));
       });
     }, builder: (context, state) {
       return Scaffold(
