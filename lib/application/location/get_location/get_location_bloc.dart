@@ -11,40 +11,45 @@ part 'get_location_bloc.freezed.dart';
 class GetLocationBloc extends Bloc<GetLocationEvent, GetLocationState> {
   GetLocationBloc() : super(_Initial()) {
     on<GetLocationEvent>((event, emit) async {
-      await event.map(started: (e) async {
-        bool serviceEnabled;
-        LocationPermission permission;
-        emit(GetLocationState.loading());
-        // Test if location services are enabled.
-        serviceEnabled = await Geolocator.isLocationServiceEnabled();
-        if (!serviceEnabled) {
-          Position? position = await Geolocator.getLastKnownPosition();
-          if (position != null)
-            emit(GetLocationState.positionlocated(position));
-          else
-            emit(GetLocationState.locationServiceDisabled());
-          return 0;
-        }
+      await event.map(
+        started: (e) async {
+          bool serviceEnabled;
+          LocationPermission permission;
+          emit(GetLocationState.loading());
+          // Test if location services are enabled.
+          serviceEnabled = await Geolocator.isLocationServiceEnabled();
+          if (!serviceEnabled) {
+            Position? position = await Geolocator.getLastKnownPosition();
+            if (position != null)
+              emit(GetLocationState.positionlocated(position));
+            else
+              emit(GetLocationState.locationServiceDisabled());
+            return 0;
+          }
 
-        permission = await Geolocator.checkPermission();
-        if (permission == LocationPermission.denied) {
-          permission = await Geolocator.requestPermission();
+          permission = await Geolocator.checkPermission();
           if (permission == LocationPermission.denied) {
+            permission = await Geolocator.requestPermission();
+            if (permission == LocationPermission.denied) {
+              emit(GetLocationState.locationPermissionDenied());
+              return 0;
+            }
+          }
+
+          if (permission == LocationPermission.deniedForever) {
+            // Permissions are denied forever, handle appropriately.
             emit(GetLocationState.locationPermissionDenied());
             return 0;
           }
-        }
-
-        if (permission == LocationPermission.deniedForever) {
-          // Permissions are denied forever, handle appropriately.
-          emit(GetLocationState.locationPermissionDenied());
-          return 0;
-        }
-        // When we reach here, permissions are granted and we can
-        // continue accessing the position of the device.
-        Position position = await Geolocator.getCurrentPosition();
-        emit(GetLocationState.positionlocated(position));
-      });
+          // When we reach here, permissions are granted and we can
+          // continue accessing the position of the device.
+          Position position = await Geolocator.getCurrentPosition(
+            desiredAccuracy: LocationAccuracy.lowest,
+            forceAndroidLocationManager: true,
+          );
+          emit(GetLocationState.positionlocated(position));
+        },
+      );
     });
   }
 }

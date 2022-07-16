@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -9,4 +12,5 @@ abstract class RegisterModule {
       app: Firebase.app(),
       databaseURL: 'https://uber-clone-706c5-default-rtdb.europe-west1.firebasedatabase.app');
   FirebaseAuth get auth => FirebaseAuth.instance;
+  Dio get dio => Dio();
 }

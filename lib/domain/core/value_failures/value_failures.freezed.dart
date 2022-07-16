@@ -16,7 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  T get value => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T value) empty,
@@ -24,6 +23,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -33,6 +33,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -42,6 +43,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +54,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +64,7 @@ mixin _$ValueFailure<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,12 +74,9 @@ mixin _$ValueFailure<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -84,7 +85,6 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
       _$ValueFailureCopyWithImpl<T, $Res>;
-  $Res call({T value});
 }
 
 /// @nodoc
@@ -95,27 +95,13 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   final ValueFailure<T> _value;
   // ignore: unused_field
   final $Res Function(ValueFailure<T>) _then;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_value.copyWith(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$_EmptyCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$_EmptyCopyWith<T, $Res> {
   factory _$$_EmptyCopyWith(
           _$_Empty<T> value, $Res Function(_$_Empty<T>) then) =
       __$$_EmptyCopyWithImpl<T, $Res>;
-  @override
   $Res call({T value});
 }
 
@@ -188,6 +174,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) {
     return empty(value);
   }
@@ -200,6 +187,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) {
     return empty?.call(value);
   }
@@ -212,6 +200,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -228,6 +217,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) {
     return empty(this);
   }
@@ -240,6 +230,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) {
     return empty?.call(this);
   }
@@ -252,6 +243,7 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -264,21 +256,17 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
 abstract class _Empty<T> implements ValueFailure<T> {
   factory _Empty(final T value) = _$_Empty<T>;
 
-  @override
   T get value => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$_EmptyCopyWith<T, _$_Empty<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_TooLongCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$_TooLongCopyWith<T, $Res> {
   factory _$$_TooLongCopyWith(
           _$_TooLong<T> value, $Res Function(_$_TooLong<T>) then) =
       __$$_TooLongCopyWithImpl<T, $Res>;
-  @override
   $Res call({T value});
 }
 
@@ -352,6 +340,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) {
     return tooLong(value);
   }
@@ -364,6 +353,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) {
     return tooLong?.call(value);
   }
@@ -376,6 +366,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) {
     if (tooLong != null) {
@@ -392,6 +383,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) {
     return tooLong(this);
   }
@@ -404,6 +396,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) {
     return tooLong?.call(this);
   }
@@ -416,6 +409,7 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) {
     if (tooLong != null) {
@@ -428,21 +422,17 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
 abstract class _TooLong<T> implements ValueFailure<T> {
   factory _TooLong(final T value) = _$_TooLong<T>;
 
-  @override
   T get value => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$_TooLongCopyWith<T, _$_TooLong<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InvalidEmailCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$_InvalidEmailCopyWith<T, $Res> {
   factory _$$_InvalidEmailCopyWith(
           _$_InvalidEmail<T> value, $Res Function(_$_InvalidEmail<T>) then) =
       __$$_InvalidEmailCopyWithImpl<T, $Res>;
-  @override
   $Res call({T value});
 }
 
@@ -518,6 +508,7 @@ class _$_InvalidEmail<T>
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) {
     return invalidEmail(value);
   }
@@ -530,6 +521,7 @@ class _$_InvalidEmail<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) {
     return invalidEmail?.call(value);
   }
@@ -542,6 +534,7 @@ class _$_InvalidEmail<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -558,6 +551,7 @@ class _$_InvalidEmail<T>
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) {
     return invalidEmail(this);
   }
@@ -570,6 +564,7 @@ class _$_InvalidEmail<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) {
     return invalidEmail?.call(this);
   }
@@ -582,6 +577,7 @@ class _$_InvalidEmail<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -594,21 +590,17 @@ class _$_InvalidEmail<T>
 abstract class _InvalidEmail<T> implements ValueFailure<T> {
   factory _InvalidEmail(final T value) = _$_InvalidEmail<T>;
 
-  @override
   T get value => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$_InvalidEmailCopyWith<T, _$_InvalidEmail<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InvalidPasswordCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$_InvalidPasswordCopyWith<T, $Res> {
   factory _$$_InvalidPasswordCopyWith(_$_InvalidPassword<T> value,
           $Res Function(_$_InvalidPassword<T>) then) =
       __$$_InvalidPasswordCopyWithImpl<T, $Res>;
-  @override
   $Res call({T value});
 }
 
@@ -685,6 +677,7 @@ class _$_InvalidPassword<T>
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) {
     return invalidPassword(value);
   }
@@ -697,6 +690,7 @@ class _$_InvalidPassword<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) {
     return invalidPassword?.call(value);
   }
@@ -709,6 +703,7 @@ class _$_InvalidPassword<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -725,6 +720,7 @@ class _$_InvalidPassword<T>
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) {
     return invalidPassword(this);
   }
@@ -737,6 +733,7 @@ class _$_InvalidPassword<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) {
     return invalidPassword?.call(this);
   }
@@ -749,6 +746,7 @@ class _$_InvalidPassword<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -761,21 +759,17 @@ class _$_InvalidPassword<T>
 abstract class _InvalidPassword<T> implements ValueFailure<T> {
   factory _InvalidPassword(final T value) = _$_InvalidPassword<T>;
 
-  @override
   T get value => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$_InvalidPasswordCopyWith<T, _$_InvalidPassword<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_InvalidPhoneNumberCopyWith<T, $Res>
-    implements $ValueFailureCopyWith<T, $Res> {
+abstract class _$$_InvalidPhoneNumberCopyWith<T, $Res> {
   factory _$$_InvalidPhoneNumberCopyWith(_$_InvalidPhoneNumber<T> value,
           $Res Function(_$_InvalidPhoneNumber<T>) then) =
       __$$_InvalidPhoneNumberCopyWithImpl<T, $Res>;
-  @override
   $Res call({T value});
 }
 
@@ -853,6 +847,7 @@ class _$_InvalidPhoneNumber<T>
     required TResult Function(T value) invalidEmail,
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
   }) {
     return invalidPhoneNumber(value);
   }
@@ -865,6 +860,7 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
   }) {
     return invalidPhoneNumber?.call(value);
   }
@@ -877,6 +873,7 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(T value)? invalidEmail,
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -893,6 +890,7 @@ class _$_InvalidPhoneNumber<T>
     required TResult Function(_InvalidEmail<T> value) invalidEmail,
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
   }) {
     return invalidPhoneNumber(this);
   }
@@ -905,6 +903,7 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
   }) {
     return invalidPhoneNumber?.call(this);
   }
@@ -917,6 +916,7 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(_InvalidEmail<T> value)? invalidEmail,
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -929,10 +929,146 @@ class _$_InvalidPhoneNumber<T>
 abstract class _InvalidPhoneNumber<T> implements ValueFailure<T> {
   factory _InvalidPhoneNumber(final T value) = _$_InvalidPhoneNumber<T>;
 
-  @override
   T get value => throw _privateConstructorUsedError;
-  @override
   @JsonKey(ignore: true)
   _$$_InvalidPhoneNumberCopyWith<T, _$_InvalidPhoneNumber<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AdressisLoadingCopyWith<T, $Res> {
+  factory _$$_AdressisLoadingCopyWith(_$_AdressisLoading<T> value,
+          $Res Function(_$_AdressisLoading<T>) then) =
+      __$$_AdressisLoadingCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$_AdressisLoadingCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$_AdressisLoadingCopyWith<T, $Res> {
+  __$$_AdressisLoadingCopyWithImpl(
+      _$_AdressisLoading<T> _value, $Res Function(_$_AdressisLoading<T>) _then)
+      : super(_value, (v) => _then(v as _$_AdressisLoading<T>));
+
+  @override
+  _$_AdressisLoading<T> get _value => super._value as _$_AdressisLoading<T>;
+}
+
+/// @nodoc
+
+class _$_AdressisLoading<T>
+    with DiagnosticableTreeMixin
+    implements _AdressisLoading<T> {
+  _$_AdressisLoading();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.adressisloading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ValueFailure<$T>.adressisloading'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AdressisLoading<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) empty,
+    required TResult Function(T value) tooLong,
+    required TResult Function(T value) invalidEmail,
+    required TResult Function(T value) invalidPassword,
+    required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
+  }) {
+    return adressisloading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+  }) {
+    return adressisloading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+    required TResult orElse(),
+  }) {
+    if (adressisloading != null) {
+      return adressisloading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_TooLong<T> value) tooLong,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_InvalidPassword<T> value) invalidPassword,
+    required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
+  }) {
+    return adressisloading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+  }) {
+    return adressisloading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+    required TResult orElse(),
+  }) {
+    if (adressisloading != null) {
+      return adressisloading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AdressisLoading<T> implements ValueFailure<T> {
+  factory _AdressisLoading() = _$_AdressisLoading<T>;
 }

@@ -62,7 +62,9 @@ class _HomePageState extends State<HomePage> {
               initial: (s) {},
               loading: (s) {
                 showDialog(
-                    context: context, builder: (_) => Center(child: CircularProgressIndicator()));
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (_) => Center(child: CircularProgressIndicator()));
               },
               locationServiceDisabled: (s) {
                 AutoRouter.of(context).popUntilRouteWithName("HomePageRoute");
@@ -92,6 +94,10 @@ class _HomePageState extends State<HomePage> {
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       child: GoogleMap(
+                        trafficEnabled: true,
+                        rotateGesturesEnabled: true,
+                        mapToolbarEnabled: true,
+                        myLocationButtonEnabled: true,
                         myLocationEnabled: true,
                         zoomControlsEnabled: true,
                         zoomGesturesEnabled: true,
@@ -189,12 +195,6 @@ class _HomePageState extends State<HomePage> {
                   left: 20,
                   top: 20,
                 ),
-                // PositionnedButton(
-                //   icon: Icons.gps_fixed,
-                //   onPressed: () {},
-                //   right: 20,
-                //   top: MediaQuery.of(context).size.height * 2 / 4,
-                // )
               ],
             );
           },
