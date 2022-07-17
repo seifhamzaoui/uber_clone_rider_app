@@ -5,6 +5,7 @@ import 'package:google_maps_flutter_platform_interface/src/types/location.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:uber_clone/domain/location/I_location_reository.dart';
+import 'package:uber_clone/domain/location/entities.dart';
 import 'package:uber_clone/domain/location/location_failure.dart';
 import 'package:uber_clone/domain/location/value_objects.dart';
 import 'package:uber_clone/infrastructure/location/adress_dto.dart';
@@ -24,6 +25,22 @@ class LocationRepository implements ILocationRepository {
       AdressDto currentAdressDto = await _locationFromGeoCoding.getCurrentAdress(position);
       LocationAdress adress = LocationAdress(currentAdressDto.formatted_address);
       return right(adress);
+    } on PlatformException catch (e) {
+      return left(LocationFailure.notFound());
+    } catch (e) {
+      return left(LocationFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<LocationFailure, List<PredictedAdress>>> searchDestinationAdress(
+    String inputAdress,
+  ) async {
+    try {
+      List<PredictionAdressDto> list =
+          await _locationFromGeoCoding.getpredictedAdresses(inputAdress);
+      List<PredictedAdress> domainList = list.map((e) => e.toDomain()).toList();
+      return right(domainList);
     } on PlatformException catch (e) {
       return left(LocationFailure.notFound());
     } catch (e) {

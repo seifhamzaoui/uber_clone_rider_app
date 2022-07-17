@@ -15,10 +15,12 @@ import 'application/auth/register/register_bloc.dart' as _i10;
 import 'application/auth/sign_in/sign_in_bloc.dart' as _i11;
 import 'application/location/get_location/get_location_bloc.dart' as _i6;
 import 'application/location/map_controller/map_controller_bloc.dart' as _i15;
+import 'application/location/search_destination/search_destination_bloc.dart'
+    as _i16;
 import 'domain/auth/I_auth_repository.dart' as _i7;
 import 'domain/location/I_location_reository.dart' as _i13;
 import 'infrastructure/auth/auth_repository.dart' as _i8;
-import 'infrastructure/core/injectable_module.dart' as _i16;
+import 'infrastructure/core/injectable_module.dart' as _i17;
 import 'infrastructure/location/location_data_source.dart' as _i9;
 import 'infrastructure/location/location_repository.dart'
     as _i14; // ignore_for_file: unnecessary_lambdas
@@ -46,7 +48,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i14.LocationRepository(get<_i9.LocationFromGeoCoding>()));
   gh.factory<_i15.MapControllerBloc>(() => _i15.MapControllerBloc(
       get<_i6.GetLocationBloc>(), get<_i13.ILocationRepository>()));
+  gh.factory<_i16.SearchDestinationBloc>(
+      () => _i16.SearchDestinationBloc(get<_i13.ILocationRepository>()));
   return get;
 }
 
-class _$RegisterModule extends _i16.RegisterModule {}
+class _$RegisterModule extends _i17.RegisterModule {}

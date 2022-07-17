@@ -7,7 +7,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import 'package:uber_clone/application/location/get_location/get_location_bloc.dart';
+import 'package:uber_clone/application/location/search_destination/search_destination_bloc.dart';
 import 'package:uber_clone/domain/location/I_location_reository.dart';
+import 'package:uber_clone/domain/location/entities.dart';
 import 'package:uber_clone/domain/location/location_failure.dart';
 import 'package:uber_clone/domain/location/value_objects.dart';
 
@@ -31,8 +33,10 @@ class MapControllerBloc extends Bloc<MapControllerEvent, MapControllerState> {
         currentPositioninit: (e) async {
           LatLng position = LatLng(e.position.latitude, e.position.longitude);
           emit(state.copyWith(currentposition: position));
-          await state.mapController?.animateCamera(CameraUpdate.newCameraPosition(
-              CameraPosition(target: state.currentposition!, zoom: 13)));
+          await state.mapController?.animateCamera(
+            CameraUpdate.newCameraPosition(
+                CameraPosition(target: state.currentposition!, zoom: 13)),
+          );
           Either<LocationFailure, LocationAdress> succesOrFailure =
               await _locationRepository.getCurrentAdress(position);
           succesOrFailure.fold(
@@ -40,7 +44,7 @@ class MapControllerBloc extends Bloc<MapControllerEvent, MapControllerState> {
               emit(state.copyWith(responseOption: Some(failure)));
             },
             (adress) {
-              emit(state.copyWith(currentAdress: adress));
+              emit(state.copyWith(currentAdress: adress, responseOption: none()));
             },
           );
         },

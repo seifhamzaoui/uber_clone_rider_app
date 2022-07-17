@@ -44,8 +44,7 @@ class GetLocationBloc extends Bloc<GetLocationEvent, GetLocationState> {
           // When we reach here, permissions are granted and we can
           // continue accessing the position of the device.
           Position position = await Geolocator.getCurrentPosition(
-            desiredAccuracy: LocationAccuracy.lowest,
-            forceAndroidLocationManager: true,
+            desiredAccuracy: LocationAccuracy.bestForNavigation,
           );
           emit(GetLocationState.positionlocated(position));
         },

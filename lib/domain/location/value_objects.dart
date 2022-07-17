@@ -3,7 +3,7 @@ import 'package:uber_clone/domain/core/value_failures/value_failures.dart';
 import 'package:uber_clone/domain/core/value_object.dart';
 import 'package:uber_clone/domain/location/value_validators.dart';
 
-class LocationAdress extends ValueObject<String> {
+class LocationAdress {
   Either<ValueFailure<String>, String> value;
 
   LocationAdress._(this.value);

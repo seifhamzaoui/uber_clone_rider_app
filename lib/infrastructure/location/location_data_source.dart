@@ -17,6 +17,12 @@ class LocationFromGeoCoding {
     return "https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.longitude}&key=$_apiKey";
   }
 
+  String _predictionUrl(String inputAdress) {
+    String url =
+        "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$inputAdress&key=$_apiKey&components=country:dz";
+    return url;
+  }
+
   Dio _dio;
   LocationFromGeoCoding(
     this._dio,
@@ -35,6 +41,24 @@ class LocationFromGeoCoding {
       AdressDto adressDto = AdressDto.fromJson(jsonMap['results'][0]);
       print(adressDto);
       return adressDto;
+    } else {
+      throw HttpException('server error');
+    }
+  }
+
+  Future<List<PredictionAdressDto>> getpredictedAdresses(String inputAdress) async {
+    String url = _predictionUrl(inputAdress);
+    final response = await _dio.get(url);
+    if (response.statusCode == 200) {
+      final jsonString = jsonEncode(response.data);
+      final jsonMap = jsonDecode(jsonString);
+      if (jsonMap['status'] == 'OK') {
+        List<PredictionAdressDto> listOfpredictions = (jsonMap["predictions"] as List)
+            .map((json) => PredictionAdressDto.fromJson(json))
+            .toList();
+        return listOfpredictions;
+      } else
+        throw HttpException('server error');
     } else {
       throw HttpException('server error');
     }

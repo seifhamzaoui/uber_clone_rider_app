@@ -5,9 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uber_clone/application/location/get_location/get_location_bloc.dart';
 import 'package:uber_clone/application/location/map_controller/map_controller_bloc.dart';
+import 'package:uber_clone/application/location/search_destination/search_destination_bloc.dart';
 import 'dart:async';
 
 import 'package:uber_clone/injectable.dart';
+import 'package:uber_clone/presentation/main/search_destination_page.dart';
+import 'package:uber_clone/presentation/routes/router.gr.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,7 +55,8 @@ class _HomePageState extends State<HomePage> {
       providers: [
         BlocProvider<GetLocationBloc>(
             create: (context) => getIt<GetLocationBloc>()..add(GetLocationEvent.started())),
-        BlocProvider<MapControllerBloc>(create: (context) => getIt<MapControllerBloc>())
+        BlocProvider<MapControllerBloc>(create: (context) => getIt<MapControllerBloc>()),
+        BlocProvider<SearchDestinationBloc>(create: (context) => getIt<SearchDestinationBloc>()),
       ],
       child: Scaffold(
           body: SafeArea(
@@ -116,78 +120,111 @@ class _HomePageState extends State<HomePage> {
                         initialCameraPosition: _kGooglePlex,
                       ),
                     )),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                        ),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.4),
-                            offset: Offset(0, -5),
-                            blurRadius: 20,
-                          ),
-                        ]),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 2.7,
-                    child: ListView(
-                      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-                      children: [
-                        Text(
-                          'Nice to see you again',
-                          style: TextStyle(fontSize: 13, color: Colors.black),
-                        ),
-                        SizedBox(height: 5),
-                        Text(
-                          "Where are you going?",
-                          style: TextStyle(fontFamily: 'bolt-bold', fontSize: 20),
-                        ),
-                        SizedBox(height: 10),
-                        Container(
-                          padding: EdgeInsets.all(12),
-                          decoration: BoxDecoration(
+                DraggableScrollableSheet(
+                  minChildSize: 0.1,
+                  initialChildSize: 0.3,
+                  maxChildSize: 0.35,
+                  builder: (ctx, c) {
+                    return SingleChildScrollView(
+                      controller: c,
+                      child: Container(
+                        decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(15),
+                              topRight: Radius.circular(15),
+                            ),
                             boxShadow: [
                               BoxShadow(
-                                  color: Colors.black,
-                                  offset: Offset(-5, -2),
-                                  blurRadius: 20,
-                                  spreadRadius: -15),
-                            ],
-                          ),
-                          height: 50,
-                          child: Row(
-                            children: const <Widget>[
-                              Icon(Icons.search, color: Colors.blueAccent),
-                              SizedBox(width: 10),
-                              Align(
-                                alignment: Alignment(-1, -0.5),
-                                child: Text(
-                                  'Search destination',
+                                color: Colors.black.withOpacity(0.4),
+                                offset: Offset(0, -5),
+                                blurRadius: 20,
+                              ),
+                            ]),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Nice to see you again',
+                                style: TextStyle(fontSize: 13, color: Colors.black),
+                              ),
+                              const SizedBox(height: 5),
+                              const Text(
+                                "Where are you going?",
+                                style: TextStyle(fontFamily: 'bolt-bold', fontSize: 20),
+                              ),
+                              const SizedBox(height: 10),
+                              GestureDetector(
+                                onTap: () {
+                                  context
+                                      .read<SearchDestinationBloc>()
+                                      .state
+                                      .userAdress
+                                      .formtatedAdress
+                                      .value
+                                      .fold(
+                                    (l) {
+                                      showLocationDialog(
+                                          'Please wait until position fetched.', context);
+                                    },
+                                    (r) {
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (_) {
+                                          return BlocProvider<SearchDestinationBloc>.value(
+                                            value: BlocProvider.of<SearchDestinationBloc>(ctx),
+                                            child: SearchDestination(),
+                                          );
+                                        },
+                                      ));
+                                      // AutoRouter.of(context).push(SearchDestinationRoute());
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.all(12),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                          color: Colors.black,
+                                          offset: Offset(-5, -2),
+                                          blurRadius: 20,
+                                          spreadRadius: -15),
+                                    ],
+                                  ),
+                                  height: 50,
+                                  child: Row(
+                                    children: const <Widget>[
+                                      Icon(Icons.search, color: Colors.blueAccent),
+                                      SizedBox(width: 10),
+                                      Align(
+                                        alignment: Alignment(-1, -0.5),
+                                        child: Text(
+                                          'Search destination',
+                                          style: TextStyle(fontSize: 15),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 10),
+                              ListTile(
+                                leading: Icon(Icons.home_outlined),
+                                title: Text('Home'),
+                                subtitle: Text(
+                                  'hamza,Hammam guergour,setif',
                                   style: TextStyle(fontSize: 15),
                                 ),
                               )
                             ],
                           ),
                         ),
-                        SizedBox(height: 10),
-                        ListTile(
-                          leading: Icon(Icons.home_outlined),
-                          title: Text('Home'),
-                          subtitle: Text(
-                            'hamza,Hammam guergour,setif',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                      ),
+                    );
+                  },
                 ),
                 PositionnedButton(
                   icon: Icons.menu,
@@ -195,6 +232,15 @@ class _HomePageState extends State<HomePage> {
                   left: 20,
                   top: 20,
                 ),
+                BlocListener<MapControllerBloc, MapControllerState>(
+                  listener: (context, state) {
+                    context.read<SearchDestinationBloc>().add(SearchDestinationEvent.started(
+                          cuurentAdress: state.currentAdress,
+                          currentposition: state.currentposition ?? LatLng(0, 0),
+                        ));
+                  },
+                  child: Container(),
+                )
               ],
             );
           },

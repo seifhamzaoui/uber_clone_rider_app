@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:uber_clone/presentation/app.dart';
 import 'package:uber_clone/presentation/auth/register_page.dart';
 import 'package:uber_clone/presentation/auth/sign_in_page.dart';
+import 'package:uber_clone/presentation/main/search_destination_page.dart';
 import 'package:uber_clone/presentation/splash.dart';
 
 import '../main/home_page.dart';
@@ -15,7 +16,8 @@ import '../main/home_page.dart';
     ),
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterPage),
-    AutoRoute(page: HomePage)
+    AutoRoute(page: HomePage),
+    AutoRoute(page: SearchDestination),
   ],
 )
 class $AppRouter {}
