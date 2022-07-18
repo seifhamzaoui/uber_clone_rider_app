@@ -1,8 +1,10 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+
 import 'package:uber_clone/application/location/map_controller/map_controller_bloc.dart';
 import 'package:uber_clone/application/location/search_destination/search_destination_bloc.dart';
 import 'package:uber_clone/domain/location/entities.dart';
@@ -10,7 +12,11 @@ import 'package:uber_clone/injectable.dart';
 import 'package:uber_clone/presentation/core/brand_colors.dart';
 
 class SearchDestination extends StatelessWidget {
-  SearchDestination({Key? key}) : super(key: key);
+  BuildContext buildcontext;
+  SearchDestination({
+    Key? key,
+    required this.buildcontext,
+  }) : super(key: key);
   TextEditingController textEditingController1 = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -23,7 +29,19 @@ class SearchDestination extends StatelessWidget {
         .fold((l) => 'we are fetching...', (r) => r);
 
     return BlocConsumer<SearchDestinationBloc, SearchDestinationState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.placeChoosed.isSome()) {
+          state.placeChoosed.fold(() => null, (a) {
+            buildcontext.read<MapControllerBloc>().add(
+                  MapControllerEvent.directionFetched(destination: a, origin: state.userAdress),
+                );
+            Navigator.of(context).pop();
+          });
+        }
+      },
+      listenWhen: (previousState, newState) {
+        return previousState.placeChoosed != newState.placeChoosed;
+      },
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white,
@@ -215,43 +233,52 @@ class SearchAdressesList extends StatelessWidget {
     return ListView.builder(
         itemCount: state.searchAdresses.fold(() => 0, (a) => a.length),
         itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  width: 50,
-                  height: 50,
-                  child: Center(
-                      child: Icon(
-                    Icons.location_on,
-                    color: Colors.grey,
-                  )),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 300,
-                      height: 20,
-                      child: Text(state.searchAdresses.fold(() => '', (a) => a[index].mainText)),
-                    ),
-                    SizedBox(height: 5),
-                    Container(
-                      width: 100,
-                      height: 20,
-                      child: Text(
-                        state.searchAdresses.fold(() => '', (a) => a[index].secondText),
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
+          return GestureDetector(
+            onTap: () {
+              BlocProvider.of<SearchDestinationBloc>(context).add(
+                  SearchDestinationEvent.placeChoosed(
+                      adressChoosed: state.searchAdresses.fold(
+                          () => PredictedAdress(placeId: '', mainText: '', secondText: ''),
+                          (list) => list[index])));
+            },
+            child: Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 50,
+                    height: 50,
+                    child: Center(
+                        child: Icon(
+                      Icons.location_on,
+                      color: Colors.grey,
+                    )),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 300,
+                        height: 20,
+                        child: Text(state.searchAdresses.fold(() => '', (a) => a[index].mainText)),
                       ),
-                    )
-                  ],
-                )
-              ],
+                      SizedBox(height: 5),
+                      Container(
+                        width: 100,
+                        height: 20,
+                        child: Text(
+                          state.searchAdresses.fold(() => '', (a) => a[index].secondText),
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           );
         });

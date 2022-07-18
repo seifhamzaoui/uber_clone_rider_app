@@ -6,4 +6,6 @@ class MapControllerEvent with _$MapControllerEvent {
     required GoogleMapController mapcontroller,
   }) = _MapCreated;
   const factory MapControllerEvent.currentPositioninit(Position position) = _CurrentPostioninit;
+  const factory MapControllerEvent.directionFetched(
+      {required PlaceDetails destination, required Adress origin}) = _directionFetched;
 }

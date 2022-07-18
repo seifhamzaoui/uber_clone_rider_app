@@ -7,11 +7,13 @@ class MapControllerState {
   LatLng? currentposition;
   LocationAdress currentAdress;
   Option<LocationFailure> responseOption;
+  Option<Polyline> polyline;
   MapControllerState({
     this.mapController,
     this.currentposition,
     required this.currentAdress,
     required this.responseOption,
+    required this.polyline,
   });
 
   factory MapControllerState.initial() => MapControllerState(
@@ -19,6 +21,7 @@ class MapControllerState {
         currentposition: null,
         currentAdress: LocationAdress(''),
         responseOption: none(),
+        polyline: none(),
       );
 
   @override
@@ -28,7 +31,8 @@ class MapControllerState {
     return other.mapController == mapController &&
         other.currentposition == currentposition &&
         other.currentAdress == currentAdress &&
-        other.responseOption == responseOption;
+        other.responseOption == responseOption &&
+        other.polyline == polyline;
   }
 
   @override
@@ -36,7 +40,8 @@ class MapControllerState {
     return mapController.hashCode ^
         currentposition.hashCode ^
         currentAdress.hashCode ^
-        responseOption.hashCode;
+        responseOption.hashCode ^
+        polyline.hashCode;
   }
 
   MapControllerState copyWith({
@@ -44,12 +49,19 @@ class MapControllerState {
     LatLng? currentposition,
     LocationAdress? currentAdress,
     Option<LocationFailure>? responseOption,
+    Option<Polyline>? polyline,
   }) {
     return MapControllerState(
       mapController: mapController ?? this.mapController,
       currentposition: currentposition ?? this.currentposition,
       currentAdress: currentAdress ?? this.currentAdress,
       responseOption: responseOption ?? this.responseOption,
+      polyline: polyline ?? this.polyline,
     );
+  }
+
+  @override
+  String toString() {
+    return 'MapControllerState(mapController: $mapController, currentposition: $currentposition, currentAdress: $currentAdress, responseOption: $responseOption, polyline: $polyline)';
   }
 }

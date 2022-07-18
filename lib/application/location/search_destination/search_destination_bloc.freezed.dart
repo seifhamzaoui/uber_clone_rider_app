@@ -22,6 +22,7 @@ mixin _$SearchDestinationEvent {
             LocationAdress cuurentAdress, LatLng currentposition)
         started,
     required TResult Function(String input) search,
+    required TResult Function(PredictedAdress adressChoosed) placeChoosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$SearchDestinationEvent {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$SearchDestinationEvent {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,18 +46,21 @@ mixin _$SearchDestinationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Search value) search,
+    required TResult Function(_PlaceChoosed value) placeChoosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -158,6 +164,7 @@ class _$_Started implements _Started {
             LocationAdress cuurentAdress, LatLng currentposition)
         started,
     required TResult Function(String input) search,
+    required TResult Function(PredictedAdress adressChoosed) placeChoosed,
   }) {
     return started(cuurentAdress, currentposition);
   }
@@ -168,6 +175,7 @@ class _$_Started implements _Started {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
   }) {
     return started?.call(cuurentAdress, currentposition);
   }
@@ -178,6 +186,7 @@ class _$_Started implements _Started {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -191,6 +200,7 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Search value) search,
+    required TResult Function(_PlaceChoosed value) placeChoosed,
   }) {
     return started(this);
   }
@@ -200,6 +210,7 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
   }) {
     return started?.call(this);
   }
@@ -209,6 +220,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -297,6 +309,7 @@ class _$_Search implements _Search {
             LocationAdress cuurentAdress, LatLng currentposition)
         started,
     required TResult Function(String input) search,
+    required TResult Function(PredictedAdress adressChoosed) placeChoosed,
   }) {
     return search(input);
   }
@@ -307,6 +320,7 @@ class _$_Search implements _Search {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
   }) {
     return search?.call(input);
   }
@@ -317,6 +331,7 @@ class _$_Search implements _Search {
     TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
         started,
     TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -330,6 +345,7 @@ class _$_Search implements _Search {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Search value) search,
+    required TResult Function(_PlaceChoosed value) placeChoosed,
   }) {
     return search(this);
   }
@@ -339,6 +355,7 @@ class _$_Search implements _Search {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
   }) {
     return search?.call(this);
   }
@@ -348,6 +365,7 @@ class _$_Search implements _Search {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
     required TResult orElse(),
   }) {
     if (search != null) {
@@ -363,5 +381,160 @@ abstract class _Search implements SearchDestinationEvent {
   String get input => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_SearchCopyWith<_$_Search> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PlaceChoosedCopyWith<$Res> {
+  factory _$$_PlaceChoosedCopyWith(
+          _$_PlaceChoosed value, $Res Function(_$_PlaceChoosed) then) =
+      __$$_PlaceChoosedCopyWithImpl<$Res>;
+  $Res call({PredictedAdress adressChoosed});
+
+  $PredictedAdressCopyWith<$Res> get adressChoosed;
+}
+
+/// @nodoc
+class __$$_PlaceChoosedCopyWithImpl<$Res>
+    extends _$SearchDestinationEventCopyWithImpl<$Res>
+    implements _$$_PlaceChoosedCopyWith<$Res> {
+  __$$_PlaceChoosedCopyWithImpl(
+      _$_PlaceChoosed _value, $Res Function(_$_PlaceChoosed) _then)
+      : super(_value, (v) => _then(v as _$_PlaceChoosed));
+
+  @override
+  _$_PlaceChoosed get _value => super._value as _$_PlaceChoosed;
+
+  @override
+  $Res call({
+    Object? adressChoosed = freezed,
+  }) {
+    return _then(_$_PlaceChoosed(
+      adressChoosed: adressChoosed == freezed
+          ? _value.adressChoosed
+          : adressChoosed // ignore: cast_nullable_to_non_nullable
+              as PredictedAdress,
+    ));
+  }
+
+  @override
+  $PredictedAdressCopyWith<$Res> get adressChoosed {
+    return $PredictedAdressCopyWith<$Res>(_value.adressChoosed, (value) {
+      return _then(_value.copyWith(adressChoosed: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_PlaceChoosed implements _PlaceChoosed {
+  const _$_PlaceChoosed({required this.adressChoosed});
+
+  @override
+  final PredictedAdress adressChoosed;
+
+  @override
+  String toString() {
+    return 'SearchDestinationEvent.placeChoosed(adressChoosed: $adressChoosed)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlaceChoosed &&
+            const DeepCollectionEquality()
+                .equals(other.adressChoosed, adressChoosed));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(adressChoosed));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PlaceChoosedCopyWith<_$_PlaceChoosed> get copyWith =>
+      __$$_PlaceChoosedCopyWithImpl<_$_PlaceChoosed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            LocationAdress cuurentAdress, LatLng currentposition)
+        started,
+    required TResult Function(String input) search,
+    required TResult Function(PredictedAdress adressChoosed) placeChoosed,
+  }) {
+    return placeChoosed(adressChoosed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
+        started,
+    TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
+  }) {
+    return placeChoosed?.call(adressChoosed);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(LocationAdress cuurentAdress, LatLng currentposition)?
+        started,
+    TResult Function(String input)? search,
+    TResult Function(PredictedAdress adressChoosed)? placeChoosed,
+    required TResult orElse(),
+  }) {
+    if (placeChoosed != null) {
+      return placeChoosed(adressChoosed);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Search value) search,
+    required TResult Function(_PlaceChoosed value) placeChoosed,
+  }) {
+    return placeChoosed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
+  }) {
+    return placeChoosed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Search value)? search,
+    TResult Function(_PlaceChoosed value)? placeChoosed,
+    required TResult orElse(),
+  }) {
+    if (placeChoosed != null) {
+      return placeChoosed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlaceChoosed implements SearchDestinationEvent {
+  const factory _PlaceChoosed({required final PredictedAdress adressChoosed}) =
+      _$_PlaceChoosed;
+
+  PredictedAdress get adressChoosed => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_PlaceChoosedCopyWith<_$_PlaceChoosed> get copyWith =>
       throw _privateConstructorUsedError;
 }

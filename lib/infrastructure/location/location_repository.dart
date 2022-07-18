@@ -18,9 +18,7 @@ class LocationRepository implements ILocationRepository {
     this._locationFromGeoCoding,
   );
   @override
-  Future<Either<LocationFailure, LocationAdress>> getCurrentAdress(
-    LatLng position,
-  ) async {
+  Future<Either<LocationFailure, LocationAdress>> getCurrentAdress(LatLng position) async {
     try {
       AdressDto currentAdressDto = await _locationFromGeoCoding.getCurrentAdress(position);
       LocationAdress adress = LocationAdress(currentAdressDto.formatted_address);
@@ -34,13 +32,44 @@ class LocationRepository implements ILocationRepository {
 
   @override
   Future<Either<LocationFailure, List<PredictedAdress>>> searchDestinationAdress(
-    String inputAdress,
-  ) async {
+      String inputAdress) async {
     try {
       List<PredictionAdressDto> list =
           await _locationFromGeoCoding.getpredictedAdresses(inputAdress);
       List<PredictedAdress> domainList = list.map((e) => e.toDomain()).toList();
       return right(domainList);
+    } on PlatformException catch (e) {
+      return left(LocationFailure.notFound());
+    } catch (e) {
+      return left(LocationFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<LocationFailure, PlaceDetails>> getPlaceDetails(String placeId) async {
+    try {
+      PlaceDetailsDto placeDetailsDto = await _locationFromGeoCoding.getplaceDetails(placeId);
+      PlaceDetails placeDetails = placeDetailsDto.toDomain();
+      return right(placeDetails);
+    } on PlatformException catch (e) {
+      return left(LocationFailure.notFound());
+    } catch (e) {
+      return left(LocationFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<LocationFailure, DirectionDetails>> getDirectionDetails({
+    required PlaceDetails destination,
+    required Adress origin,
+  }) async {
+    try {
+      DirectionDetailsDto directionDetailsDto = await _locationFromGeoCoding.getDirectionDetails(
+        destination: destination,
+        origin: origin,
+      );
+      DirectionDetails directionDetails = directionDetailsDto.toDomain();
+      return right(directionDetails);
     } on PlatformException catch (e) {
       return left(LocationFailure.notFound());
     } catch (e) {

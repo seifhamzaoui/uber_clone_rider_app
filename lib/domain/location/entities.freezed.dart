@@ -320,3 +320,373 @@ abstract class _PredictedAdress implements PredictedAdress {
   _$$_PredictedAdressCopyWith<_$_PredictedAdress> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$PlaceDetails {
+  String get placeId => throw _privateConstructorUsedError;
+  String get formatedAdress => throw _privateConstructorUsedError;
+  LatLng get cordinate => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PlaceDetailsCopyWith<PlaceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PlaceDetailsCopyWith<$Res> {
+  factory $PlaceDetailsCopyWith(
+          PlaceDetails value, $Res Function(PlaceDetails) then) =
+      _$PlaceDetailsCopyWithImpl<$Res>;
+  $Res call({String placeId, String formatedAdress, LatLng cordinate});
+}
+
+/// @nodoc
+class _$PlaceDetailsCopyWithImpl<$Res> implements $PlaceDetailsCopyWith<$Res> {
+  _$PlaceDetailsCopyWithImpl(this._value, this._then);
+
+  final PlaceDetails _value;
+  // ignore: unused_field
+  final $Res Function(PlaceDetails) _then;
+
+  @override
+  $Res call({
+    Object? placeId = freezed,
+    Object? formatedAdress = freezed,
+    Object? cordinate = freezed,
+  }) {
+    return _then(_value.copyWith(
+      placeId: placeId == freezed
+          ? _value.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      formatedAdress: formatedAdress == freezed
+          ? _value.formatedAdress
+          : formatedAdress // ignore: cast_nullable_to_non_nullable
+              as String,
+      cordinate: cordinate == freezed
+          ? _value.cordinate
+          : cordinate // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_PlaceDetailsCopyWith<$Res>
+    implements $PlaceDetailsCopyWith<$Res> {
+  factory _$$_PlaceDetailsCopyWith(
+          _$_PlaceDetails value, $Res Function(_$_PlaceDetails) then) =
+      __$$_PlaceDetailsCopyWithImpl<$Res>;
+  @override
+  $Res call({String placeId, String formatedAdress, LatLng cordinate});
+}
+
+/// @nodoc
+class __$$_PlaceDetailsCopyWithImpl<$Res>
+    extends _$PlaceDetailsCopyWithImpl<$Res>
+    implements _$$_PlaceDetailsCopyWith<$Res> {
+  __$$_PlaceDetailsCopyWithImpl(
+      _$_PlaceDetails _value, $Res Function(_$_PlaceDetails) _then)
+      : super(_value, (v) => _then(v as _$_PlaceDetails));
+
+  @override
+  _$_PlaceDetails get _value => super._value as _$_PlaceDetails;
+
+  @override
+  $Res call({
+    Object? placeId = freezed,
+    Object? formatedAdress = freezed,
+    Object? cordinate = freezed,
+  }) {
+    return _then(_$_PlaceDetails(
+      placeId: placeId == freezed
+          ? _value.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      formatedAdress: formatedAdress == freezed
+          ? _value.formatedAdress
+          : formatedAdress // ignore: cast_nullable_to_non_nullable
+              as String,
+      cordinate: cordinate == freezed
+          ? _value.cordinate
+          : cordinate // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PlaceDetails implements _PlaceDetails {
+  const _$_PlaceDetails(
+      {required this.placeId,
+      required this.formatedAdress,
+      required this.cordinate});
+
+  @override
+  final String placeId;
+  @override
+  final String formatedAdress;
+  @override
+  final LatLng cordinate;
+
+  @override
+  String toString() {
+    return 'PlaceDetails(placeId: $placeId, formatedAdress: $formatedAdress, cordinate: $cordinate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlaceDetails &&
+            const DeepCollectionEquality().equals(other.placeId, placeId) &&
+            const DeepCollectionEquality()
+                .equals(other.formatedAdress, formatedAdress) &&
+            const DeepCollectionEquality().equals(other.cordinate, cordinate));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(placeId),
+      const DeepCollectionEquality().hash(formatedAdress),
+      const DeepCollectionEquality().hash(cordinate));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PlaceDetailsCopyWith<_$_PlaceDetails> get copyWith =>
+      __$$_PlaceDetailsCopyWithImpl<_$_PlaceDetails>(this, _$identity);
+}
+
+abstract class _PlaceDetails implements PlaceDetails {
+  const factory _PlaceDetails(
+      {required final String placeId,
+      required final String formatedAdress,
+      required final LatLng cordinate}) = _$_PlaceDetails;
+
+  @override
+  String get placeId => throw _privateConstructorUsedError;
+  @override
+  String get formatedAdress => throw _privateConstructorUsedError;
+  @override
+  LatLng get cordinate => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlaceDetailsCopyWith<_$_PlaceDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$DirectionDetails {
+  double get distanceValue => throw _privateConstructorUsedError;
+  String get distanceText => throw _privateConstructorUsedError;
+  double get durationValue => throw _privateConstructorUsedError;
+  String get durationText => throw _privateConstructorUsedError;
+  List<LatLng> get polyLinePoints => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DirectionDetailsCopyWith<DirectionDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DirectionDetailsCopyWith<$Res> {
+  factory $DirectionDetailsCopyWith(
+          DirectionDetails value, $Res Function(DirectionDetails) then) =
+      _$DirectionDetailsCopyWithImpl<$Res>;
+  $Res call(
+      {double distanceValue,
+      String distanceText,
+      double durationValue,
+      String durationText,
+      List<LatLng> polyLinePoints});
+}
+
+/// @nodoc
+class _$DirectionDetailsCopyWithImpl<$Res>
+    implements $DirectionDetailsCopyWith<$Res> {
+  _$DirectionDetailsCopyWithImpl(this._value, this._then);
+
+  final DirectionDetails _value;
+  // ignore: unused_field
+  final $Res Function(DirectionDetails) _then;
+
+  @override
+  $Res call({
+    Object? distanceValue = freezed,
+    Object? distanceText = freezed,
+    Object? durationValue = freezed,
+    Object? durationText = freezed,
+    Object? polyLinePoints = freezed,
+  }) {
+    return _then(_value.copyWith(
+      distanceValue: distanceValue == freezed
+          ? _value.distanceValue
+          : distanceValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      distanceText: distanceText == freezed
+          ? _value.distanceText
+          : distanceText // ignore: cast_nullable_to_non_nullable
+              as String,
+      durationValue: durationValue == freezed
+          ? _value.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      durationText: durationText == freezed
+          ? _value.durationText
+          : durationText // ignore: cast_nullable_to_non_nullable
+              as String,
+      polyLinePoints: polyLinePoints == freezed
+          ? _value.polyLinePoints
+          : polyLinePoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_DirectionDetailsCopyWith<$Res>
+    implements $DirectionDetailsCopyWith<$Res> {
+  factory _$$_DirectionDetailsCopyWith(
+          _$_DirectionDetails value, $Res Function(_$_DirectionDetails) then) =
+      __$$_DirectionDetailsCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {double distanceValue,
+      String distanceText,
+      double durationValue,
+      String durationText,
+      List<LatLng> polyLinePoints});
+}
+
+/// @nodoc
+class __$$_DirectionDetailsCopyWithImpl<$Res>
+    extends _$DirectionDetailsCopyWithImpl<$Res>
+    implements _$$_DirectionDetailsCopyWith<$Res> {
+  __$$_DirectionDetailsCopyWithImpl(
+      _$_DirectionDetails _value, $Res Function(_$_DirectionDetails) _then)
+      : super(_value, (v) => _then(v as _$_DirectionDetails));
+
+  @override
+  _$_DirectionDetails get _value => super._value as _$_DirectionDetails;
+
+  @override
+  $Res call({
+    Object? distanceValue = freezed,
+    Object? distanceText = freezed,
+    Object? durationValue = freezed,
+    Object? durationText = freezed,
+    Object? polyLinePoints = freezed,
+  }) {
+    return _then(_$_DirectionDetails(
+      distanceValue: distanceValue == freezed
+          ? _value.distanceValue
+          : distanceValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      distanceText: distanceText == freezed
+          ? _value.distanceText
+          : distanceText // ignore: cast_nullable_to_non_nullable
+              as String,
+      durationValue: durationValue == freezed
+          ? _value.durationValue
+          : durationValue // ignore: cast_nullable_to_non_nullable
+              as double,
+      durationText: durationText == freezed
+          ? _value.durationText
+          : durationText // ignore: cast_nullable_to_non_nullable
+              as String,
+      polyLinePoints: polyLinePoints == freezed
+          ? _value._polyLinePoints
+          : polyLinePoints // ignore: cast_nullable_to_non_nullable
+              as List<LatLng>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DirectionDetails implements _DirectionDetails {
+  const _$_DirectionDetails(
+      {required this.distanceValue,
+      required this.distanceText,
+      required this.durationValue,
+      required this.durationText,
+      required final List<LatLng> polyLinePoints})
+      : _polyLinePoints = polyLinePoints;
+
+  @override
+  final double distanceValue;
+  @override
+  final String distanceText;
+  @override
+  final double durationValue;
+  @override
+  final String durationText;
+  final List<LatLng> _polyLinePoints;
+  @override
+  List<LatLng> get polyLinePoints {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_polyLinePoints);
+  }
+
+  @override
+  String toString() {
+    return 'DirectionDetails(distanceValue: $distanceValue, distanceText: $distanceText, durationValue: $durationValue, durationText: $durationText, polyLinePoints: $polyLinePoints)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DirectionDetails &&
+            const DeepCollectionEquality()
+                .equals(other.distanceValue, distanceValue) &&
+            const DeepCollectionEquality()
+                .equals(other.distanceText, distanceText) &&
+            const DeepCollectionEquality()
+                .equals(other.durationValue, durationValue) &&
+            const DeepCollectionEquality()
+                .equals(other.durationText, durationText) &&
+            const DeepCollectionEquality()
+                .equals(other._polyLinePoints, _polyLinePoints));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(distanceValue),
+      const DeepCollectionEquality().hash(distanceText),
+      const DeepCollectionEquality().hash(durationValue),
+      const DeepCollectionEquality().hash(durationText),
+      const DeepCollectionEquality().hash(_polyLinePoints));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_DirectionDetailsCopyWith<_$_DirectionDetails> get copyWith =>
+      __$$_DirectionDetailsCopyWithImpl<_$_DirectionDetails>(this, _$identity);
+}
+
+abstract class _DirectionDetails implements DirectionDetails {
+  const factory _DirectionDetails(
+      {required final double distanceValue,
+      required final String distanceText,
+      required final double durationValue,
+      required final String durationText,
+      required final List<LatLng> polyLinePoints}) = _$_DirectionDetails;
+
+  @override
+  double get distanceValue => throw _privateConstructorUsedError;
+  @override
+  String get distanceText => throw _privateConstructorUsedError;
+  @override
+  double get durationValue => throw _privateConstructorUsedError;
+  @override
+  String get durationText => throw _privateConstructorUsedError;
+  @override
+  List<LatLng> get polyLinePoints => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DirectionDetailsCopyWith<_$_DirectionDetails> get copyWith =>
+      throw _privateConstructorUsedError;
+}

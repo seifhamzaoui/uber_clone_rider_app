@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -47,6 +48,29 @@ class MapControllerBloc extends Bloc<MapControllerEvent, MapControllerState> {
               emit(state.copyWith(currentAdress: adress, responseOption: none()));
             },
           );
+        },
+        directionFetched: (e) async {
+          Either<LocationFailure, DirectionDetails> failureOrsuccess =
+              await _locationRepository.getDirectionDetails(
+            destination: e.destination,
+            origin: e.origin,
+          );
+
+          failureOrsuccess.fold((l) => null, (directionDetails) async {
+            Polyline polyLine = Polyline(
+              polylineId: PolylineId('poly'),
+              points: directionDetails.polyLinePoints,
+              color: Colors.red,
+              width: 5,
+              endCap: Cap.roundCap,
+              startCap: Cap.roundCap,
+              jointType: JointType.bevel,
+              visible: true,
+            );
+            emit(state.copyWith(
+              polyline: some(polyLine),
+            ));
+          });
         },
       );
     });

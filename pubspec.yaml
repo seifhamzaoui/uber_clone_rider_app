@@ -46,6 +46,8 @@ dependencies:
   flutter_dotenv: ^5.0.2
   dio:
   shimmer: ^2.0.0
+  flutter_polyline_points: ^1.0.0
+
 
 dev_dependencies:
   build_runner: 

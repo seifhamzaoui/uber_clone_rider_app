@@ -48,8 +48,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i14.LocationRepository(get<_i9.LocationFromGeoCoding>()));
   gh.factory<_i15.MapControllerBloc>(() => _i15.MapControllerBloc(
       get<_i6.GetLocationBloc>(), get<_i13.ILocationRepository>()));
-  gh.factory<_i16.SearchDestinationBloc>(
-      () => _i16.SearchDestinationBloc(get<_i13.ILocationRepository>()));
+  gh.factory<_i16.SearchDestinationBloc>(() => _i16.SearchDestinationBloc(
+      get<_i13.ILocationRepository>(), get<_i15.MapControllerBloc>()));
   return get;
 }
 

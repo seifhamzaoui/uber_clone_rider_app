@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Set<Polyline> polyLines = {};
   double padding = 0;
   Completer<GoogleMapController> _controller = Completer();
   late GoogleMapController mapController;
@@ -98,6 +99,11 @@ class _HomePageState extends State<HomePage> {
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
                       child: GoogleMap(
+                        polylines: context
+                            .watch<MapControllerBloc>()
+                            .state
+                            .polyline
+                            .fold(() => {}, (a) => {a}),
                         trafficEnabled: true,
                         rotateGesturesEnabled: true,
                         mapToolbarEnabled: true,
@@ -173,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                                         builder: (_) {
                                           return BlocProvider<SearchDestinationBloc>.value(
                                             value: BlocProvider.of<SearchDestinationBloc>(ctx),
-                                            child: SearchDestination(),
+                                            child: SearchDestination(buildcontext: ctx),
                                           );
                                         },
                                       ));
@@ -238,6 +244,10 @@ class _HomePageState extends State<HomePage> {
                           cuurentAdress: state.currentAdress,
                           currentposition: state.currentposition ?? LatLng(0, 0),
                         ));
+                    setState(() {
+                      polyLines = state.polyline.fold(() => {}, (polyLine) => {polyLine});
+                    });
+                    print(state.polyline.fold(() => 'empty', (a) => "has value"));
                   },
                   child: Container(),
                 )
@@ -276,7 +286,10 @@ class PositionnedButton extends StatelessWidget {
       child: Container(
         height: 40,
         width: 40,
-        child: IconButton(onPressed: onPressed, icon: Icon(icon)),
+        child: IconButton(
+          onPressed: onPressed,
+          icon: Icon(icon),
+        ),
         decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [

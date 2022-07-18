@@ -6,4 +6,7 @@ class SearchDestinationEvent with _$SearchDestinationEvent {
       {required LocationAdress cuurentAdress, required LatLng currentposition}) = _Started;
 
   const factory SearchDestinationEvent.search({required String input}) = _Search;
+  const factory SearchDestinationEvent.placeChoosed({
+    required PredictedAdress adressChoosed,
+  }) = _PlaceChoosed;
 }

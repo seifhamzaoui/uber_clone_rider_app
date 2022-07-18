@@ -5,6 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 
+import 'package:uber_clone/application/location/map_controller/map_controller_bloc.dart';
 import 'package:uber_clone/domain/location/I_location_reository.dart';
 import 'package:uber_clone/domain/location/entities.dart';
 import 'package:uber_clone/domain/location/location_failure.dart';
@@ -17,8 +18,10 @@ part 'search_destination_state.dart';
 @Injectable()
 class SearchDestinationBloc extends Bloc<SearchDestinationEvent, SearchDestinationState> {
   ILocationRepository _locationRepository;
+  MapControllerBloc _mapControllerBloc;
   SearchDestinationBloc(
     this._locationRepository,
+    this._mapControllerBloc,
   ) : super(SearchDestinationState.initial()) {
     on<SearchDestinationEvent>((event, emit) async {
       await event.map(
@@ -31,7 +34,6 @@ class SearchDestinationBloc extends Bloc<SearchDestinationEvent, SearchDestinati
               ),
             ),
           );
-          print(state.userAdress.formtatedAdress.value.fold((l) => 'we are fetching...', (r) => r));
         },
         search: (e) async {
           if (e.input.length < 3) {
@@ -62,6 +64,22 @@ class SearchDestinationBloc extends Bloc<SearchDestinationEvent, SearchDestinati
               );
             },
           );
+        },
+        placeChoosed: (e) async {
+          emit(state.copyWith(isloading: true));
+          Either<LocationFailure, PlaceDetails> failureOrsuccess =
+              await _locationRepository.getPlaceDetails(e.adressChoosed.placeId);
+          await failureOrsuccess.fold((f) async {
+            emit(state.copyWith(failureOption: some(f), placeChoosed: none(), isloading: false));
+          }, (placeDeatil) async {
+            emit(
+              state.copyWith(
+                failureOption: none(),
+                isloading: false,
+                placeChoosed: Some(placeDeatil),
+              ),
+            );
+          });
         },
       );
     });

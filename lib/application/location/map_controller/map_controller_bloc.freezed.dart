@@ -20,18 +20,22 @@ mixin _$MapControllerEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(GoogleMapController mapcontroller) mapCreated,
     required TResult Function(Position position) currentPositioninit,
+    required TResult Function(PlaceDetails destination, Adress origin)
+        directionFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +43,21 @@ mixin _$MapControllerEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
+    required TResult Function(_directionFetched value) directionFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +148,8 @@ class _$_MapCreated implements _MapCreated {
   TResult when<TResult extends Object?>({
     required TResult Function(GoogleMapController mapcontroller) mapCreated,
     required TResult Function(Position position) currentPositioninit,
+    required TResult Function(PlaceDetails destination, Adress origin)
+        directionFetched,
   }) {
     return mapCreated(mapcontroller);
   }
@@ -150,6 +159,7 @@ class _$_MapCreated implements _MapCreated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
   }) {
     return mapCreated?.call(mapcontroller);
   }
@@ -159,6 +169,7 @@ class _$_MapCreated implements _MapCreated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
     required TResult orElse(),
   }) {
     if (mapCreated != null) {
@@ -172,6 +183,7 @@ class _$_MapCreated implements _MapCreated {
   TResult map<TResult extends Object?>({
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
+    required TResult Function(_directionFetched value) directionFetched,
   }) {
     return mapCreated(this);
   }
@@ -181,6 +193,7 @@ class _$_MapCreated implements _MapCreated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
   }) {
     return mapCreated?.call(this);
   }
@@ -190,6 +203,7 @@ class _$_MapCreated implements _MapCreated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
     required TResult orElse(),
   }) {
     if (mapCreated != null) {
@@ -277,6 +291,8 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult when<TResult extends Object?>({
     required TResult Function(GoogleMapController mapcontroller) mapCreated,
     required TResult Function(Position position) currentPositioninit,
+    required TResult Function(PlaceDetails destination, Adress origin)
+        directionFetched,
   }) {
     return currentPositioninit(position);
   }
@@ -286,6 +302,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
   }) {
     return currentPositioninit?.call(position);
   }
@@ -295,6 +312,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
     required TResult orElse(),
   }) {
     if (currentPositioninit != null) {
@@ -308,6 +326,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult map<TResult extends Object?>({
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
+    required TResult Function(_directionFetched value) directionFetched,
   }) {
     return currentPositioninit(this);
   }
@@ -317,6 +336,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
   }) {
     return currentPositioninit?.call(this);
   }
@@ -326,6 +346,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
     required TResult orElse(),
   }) {
     if (currentPositioninit != null) {
@@ -342,5 +363,177 @@ abstract class _CurrentPostioninit implements MapControllerEvent {
   Position get position => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_CurrentPostioninitCopyWith<_$_CurrentPostioninit> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_directionFetchedCopyWith<$Res> {
+  factory _$$_directionFetchedCopyWith(
+          _$_directionFetched value, $Res Function(_$_directionFetched) then) =
+      __$$_directionFetchedCopyWithImpl<$Res>;
+  $Res call({PlaceDetails destination, Adress origin});
+
+  $PlaceDetailsCopyWith<$Res> get destination;
+  $AdressCopyWith<$Res> get origin;
+}
+
+/// @nodoc
+class __$$_directionFetchedCopyWithImpl<$Res>
+    extends _$MapControllerEventCopyWithImpl<$Res>
+    implements _$$_directionFetchedCopyWith<$Res> {
+  __$$_directionFetchedCopyWithImpl(
+      _$_directionFetched _value, $Res Function(_$_directionFetched) _then)
+      : super(_value, (v) => _then(v as _$_directionFetched));
+
+  @override
+  _$_directionFetched get _value => super._value as _$_directionFetched;
+
+  @override
+  $Res call({
+    Object? destination = freezed,
+    Object? origin = freezed,
+  }) {
+    return _then(_$_directionFetched(
+      destination: destination == freezed
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as PlaceDetails,
+      origin: origin == freezed
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as Adress,
+    ));
+  }
+
+  @override
+  $PlaceDetailsCopyWith<$Res> get destination {
+    return $PlaceDetailsCopyWith<$Res>(_value.destination, (value) {
+      return _then(_value.copyWith(destination: value));
+    });
+  }
+
+  @override
+  $AdressCopyWith<$Res> get origin {
+    return $AdressCopyWith<$Res>(_value.origin, (value) {
+      return _then(_value.copyWith(origin: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_directionFetched implements _directionFetched {
+  const _$_directionFetched({required this.destination, required this.origin});
+
+  @override
+  final PlaceDetails destination;
+  @override
+  final Adress origin;
+
+  @override
+  String toString() {
+    return 'MapControllerEvent.directionFetched(destination: $destination, origin: $origin)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_directionFetched &&
+            const DeepCollectionEquality()
+                .equals(other.destination, destination) &&
+            const DeepCollectionEquality().equals(other.origin, origin));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(destination),
+      const DeepCollectionEquality().hash(origin));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_directionFetchedCopyWith<_$_directionFetched> get copyWith =>
+      __$$_directionFetchedCopyWithImpl<_$_directionFetched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GoogleMapController mapcontroller) mapCreated,
+    required TResult Function(Position position) currentPositioninit,
+    required TResult Function(PlaceDetails destination, Adress origin)
+        directionFetched,
+  }) {
+    return directionFetched(destination, origin);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GoogleMapController mapcontroller)? mapCreated,
+    TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+  }) {
+    return directionFetched?.call(destination, origin);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GoogleMapController mapcontroller)? mapCreated,
+    TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    required TResult orElse(),
+  }) {
+    if (directionFetched != null) {
+      return directionFetched(destination, origin);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MapCreated value) mapCreated,
+    required TResult Function(_CurrentPostioninit value) currentPositioninit,
+    required TResult Function(_directionFetched value) directionFetched,
+  }) {
+    return directionFetched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_MapCreated value)? mapCreated,
+    TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
+  }) {
+    return directionFetched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MapCreated value)? mapCreated,
+    TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
+    required TResult orElse(),
+  }) {
+    if (directionFetched != null) {
+      return directionFetched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _directionFetched implements MapControllerEvent {
+  const factory _directionFetched(
+      {required final PlaceDetails destination,
+      required final Adress origin}) = _$_directionFetched;
+
+  PlaceDetails get destination => throw _privateConstructorUsedError;
+  Adress get origin => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_directionFetchedCopyWith<_$_directionFetched> get copyWith =>
       throw _privateConstructorUsedError;
 }

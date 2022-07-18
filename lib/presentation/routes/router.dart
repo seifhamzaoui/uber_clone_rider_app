@@ -17,7 +17,6 @@ import '../main/home_page.dart';
     AutoRoute(page: SignInPage),
     AutoRoute(page: RegisterPage),
     AutoRoute(page: HomePage),
-    AutoRoute(page: SearchDestination),
   ],
 )
 class $AppRouter {}

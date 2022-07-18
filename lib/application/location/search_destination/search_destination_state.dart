@@ -6,18 +6,23 @@ class SearchDestinationState {
   Option<List<PredictedAdress>> searchAdresses;
   bool isloading;
   Option<LocationFailure> failureOption;
+  Option<PlaceDetails> placeChoosed;
   SearchDestinationState({
     required this.userAdress,
     required this.searchAdresses,
     required this.isloading,
     required this.failureOption,
+    required this.placeChoosed,
   });
 
   factory SearchDestinationState.initial() => SearchDestinationState(
-      userAdress: Adress(placeId: '', formtatedAdress: LocationAdress(''), position: LatLng(0, 0)),
-      searchAdresses: none<List<PredictedAdress>>(),
-      isloading: false,
-      failureOption: none());
+        userAdress:
+            Adress(placeId: '', formtatedAdress: LocationAdress(''), position: LatLng(0, 0)),
+        searchAdresses: none<List<PredictedAdress>>(),
+        isloading: false,
+        failureOption: none(),
+        placeChoosed: none(),
+      );
 
   @override
   bool operator ==(covariant SearchDestinationState other) {
@@ -26,7 +31,8 @@ class SearchDestinationState {
     return other.userAdress == userAdress &&
         other.searchAdresses == searchAdresses &&
         other.isloading == isloading &&
-        other.failureOption == failureOption;
+        other.failureOption == failureOption &&
+        other.placeChoosed == placeChoosed;
   }
 
   @override
@@ -34,7 +40,8 @@ class SearchDestinationState {
     return userAdress.hashCode ^
         searchAdresses.hashCode ^
         isloading.hashCode ^
-        failureOption.hashCode;
+        failureOption.hashCode ^
+        placeChoosed.hashCode;
   }
 
   SearchDestinationState copyWith({
@@ -42,12 +49,19 @@ class SearchDestinationState {
     Option<List<PredictedAdress>>? searchAdresses,
     bool? isloading,
     Option<LocationFailure>? failureOption,
+    Option<PlaceDetails>? placeChoosed,
   }) {
     return SearchDestinationState(
       userAdress: userAdress ?? this.userAdress,
       searchAdresses: searchAdresses ?? this.searchAdresses,
       isloading: isloading ?? this.isloading,
       failureOption: failureOption ?? this.failureOption,
+      placeChoosed: placeChoosed ?? this.placeChoosed,
     );
+  }
+
+  @override
+  String toString() {
+    return 'SearchDestinationState(userAdress: $userAdress, searchAdresses: $searchAdresses, isloading: $isloading, failureOption: $failureOption, placeChoosed: $placeChoosed)';
   }
 }

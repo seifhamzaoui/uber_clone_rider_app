@@ -12,4 +12,7 @@ abstract class ILocationRepository {
   Future<Either<LocationFailure, List<PredictedAdress>>> searchDestinationAdress(
     String inputAdress,
   );
+  Future<Either<LocationFailure, PlaceDetails>> getPlaceDetails(String placeId);
+  Future<Either<LocationFailure, DirectionDetails>> getDirectionDetails(
+      {required PlaceDetails destination, required Adress origin});
 }
