@@ -13,7 +13,7 @@ part 'sign_in_bloc.freezed.dart';
 part 'sign_in_event.dart';
 part 'sign_in_state.dart';
 
-@Injectable()
+@Singleton()
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
   IAuthRepository _authRepository;
   SignInBloc(

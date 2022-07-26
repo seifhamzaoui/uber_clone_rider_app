@@ -22,6 +22,7 @@ mixin _$MapControllerEvent {
     required TResult Function(Position position) currentPositioninit,
     required TResult Function(PlaceDetails destination, Adress origin)
         directionFetched,
+    required TResult Function() reseted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$MapControllerEvent {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$MapControllerEvent {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$MapControllerEvent {
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
     required TResult Function(_directionFetched value) directionFetched,
+    required TResult Function(_Reseted value) reseted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$MapControllerEvent {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$MapControllerEvent {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +156,7 @@ class _$_MapCreated implements _MapCreated {
     required TResult Function(Position position) currentPositioninit,
     required TResult Function(PlaceDetails destination, Adress origin)
         directionFetched,
+    required TResult Function() reseted,
   }) {
     return mapCreated(mapcontroller);
   }
@@ -160,6 +167,7 @@ class _$_MapCreated implements _MapCreated {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
   }) {
     return mapCreated?.call(mapcontroller);
   }
@@ -170,6 +178,7 @@ class _$_MapCreated implements _MapCreated {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
     required TResult orElse(),
   }) {
     if (mapCreated != null) {
@@ -184,6 +193,7 @@ class _$_MapCreated implements _MapCreated {
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
     required TResult Function(_directionFetched value) directionFetched,
+    required TResult Function(_Reseted value) reseted,
   }) {
     return mapCreated(this);
   }
@@ -194,6 +204,7 @@ class _$_MapCreated implements _MapCreated {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
   }) {
     return mapCreated?.call(this);
   }
@@ -204,6 +215,7 @@ class _$_MapCreated implements _MapCreated {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
     required TResult orElse(),
   }) {
     if (mapCreated != null) {
@@ -293,6 +305,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     required TResult Function(Position position) currentPositioninit,
     required TResult Function(PlaceDetails destination, Adress origin)
         directionFetched,
+    required TResult Function() reseted,
   }) {
     return currentPositioninit(position);
   }
@@ -303,6 +316,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
   }) {
     return currentPositioninit?.call(position);
   }
@@ -313,6 +327,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
     required TResult orElse(),
   }) {
     if (currentPositioninit != null) {
@@ -327,6 +342,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
     required TResult Function(_directionFetched value) directionFetched,
+    required TResult Function(_Reseted value) reseted,
   }) {
     return currentPositioninit(this);
   }
@@ -337,6 +353,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
   }) {
     return currentPositioninit?.call(this);
   }
@@ -347,6 +364,7 @@ class _$_CurrentPostioninit implements _CurrentPostioninit {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
     required TResult orElse(),
   }) {
     if (currentPositioninit != null) {
@@ -463,6 +481,7 @@ class _$_directionFetched implements _directionFetched {
     required TResult Function(Position position) currentPositioninit,
     required TResult Function(PlaceDetails destination, Adress origin)
         directionFetched,
+    required TResult Function() reseted,
   }) {
     return directionFetched(destination, origin);
   }
@@ -473,6 +492,7 @@ class _$_directionFetched implements _directionFetched {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
   }) {
     return directionFetched?.call(destination, origin);
   }
@@ -483,6 +503,7 @@ class _$_directionFetched implements _directionFetched {
     TResult Function(GoogleMapController mapcontroller)? mapCreated,
     TResult Function(Position position)? currentPositioninit,
     TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
     required TResult orElse(),
   }) {
     if (directionFetched != null) {
@@ -497,6 +518,7 @@ class _$_directionFetched implements _directionFetched {
     required TResult Function(_MapCreated value) mapCreated,
     required TResult Function(_CurrentPostioninit value) currentPositioninit,
     required TResult Function(_directionFetched value) directionFetched,
+    required TResult Function(_Reseted value) reseted,
   }) {
     return directionFetched(this);
   }
@@ -507,6 +529,7 @@ class _$_directionFetched implements _directionFetched {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
   }) {
     return directionFetched?.call(this);
   }
@@ -517,6 +540,7 @@ class _$_directionFetched implements _directionFetched {
     TResult Function(_MapCreated value)? mapCreated,
     TResult Function(_CurrentPostioninit value)? currentPositioninit,
     TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
     required TResult orElse(),
   }) {
     if (directionFetched != null) {
@@ -536,4 +560,121 @@ abstract class _directionFetched implements MapControllerEvent {
   @JsonKey(ignore: true)
   _$$_directionFetchedCopyWith<_$_directionFetched> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ResetedCopyWith<$Res> {
+  factory _$$_ResetedCopyWith(
+          _$_Reseted value, $Res Function(_$_Reseted) then) =
+      __$$_ResetedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetedCopyWithImpl<$Res>
+    extends _$MapControllerEventCopyWithImpl<$Res>
+    implements _$$_ResetedCopyWith<$Res> {
+  __$$_ResetedCopyWithImpl(_$_Reseted _value, $Res Function(_$_Reseted) _then)
+      : super(_value, (v) => _then(v as _$_Reseted));
+
+  @override
+  _$_Reseted get _value => super._value as _$_Reseted;
+}
+
+/// @nodoc
+
+class _$_Reseted implements _Reseted {
+  const _$_Reseted();
+
+  @override
+  String toString() {
+    return 'MapControllerEvent.reseted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reseted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GoogleMapController mapcontroller) mapCreated,
+    required TResult Function(Position position) currentPositioninit,
+    required TResult Function(PlaceDetails destination, Adress origin)
+        directionFetched,
+    required TResult Function() reseted,
+  }) {
+    return reseted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GoogleMapController mapcontroller)? mapCreated,
+    TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
+  }) {
+    return reseted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GoogleMapController mapcontroller)? mapCreated,
+    TResult Function(Position position)? currentPositioninit,
+    TResult Function(PlaceDetails destination, Adress origin)? directionFetched,
+    TResult Function()? reseted,
+    required TResult orElse(),
+  }) {
+    if (reseted != null) {
+      return reseted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_MapCreated value) mapCreated,
+    required TResult Function(_CurrentPostioninit value) currentPositioninit,
+    required TResult Function(_directionFetched value) directionFetched,
+    required TResult Function(_Reseted value) reseted,
+  }) {
+    return reseted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_MapCreated value)? mapCreated,
+    TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
+  }) {
+    return reseted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_MapCreated value)? mapCreated,
+    TResult Function(_CurrentPostioninit value)? currentPositioninit,
+    TResult Function(_directionFetched value)? directionFetched,
+    TResult Function(_Reseted value)? reseted,
+    required TResult orElse(),
+  }) {
+    if (reseted != null) {
+      return reseted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reseted implements MapControllerEvent {
+  const factory _Reseted() = _$_Reseted;
 }

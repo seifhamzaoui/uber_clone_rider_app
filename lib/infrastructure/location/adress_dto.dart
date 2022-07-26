@@ -2,13 +2,36 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uber_clone/domain/location/entities.dart';
+import 'package:uber_clone/domain/location/value_objects.dart';
 part 'adress_dto.freezed.dart';
 part 'adress_dto.g.dart';
 
 @freezed
-abstract class AdressDto with _$AdressDto {
-  const factory AdressDto({required String formatted_address}) = _AdressDto;
+abstract class AdressDto implements _$AdressDto {
+  const AdressDto._();
+  const factory AdressDto({
+    required String formatted_address,
+    required double latitude,
+    required double longitude,
+    required String placeId,
+  }) = _AdressDto;
   factory AdressDto.fromJson(Map<String, dynamic> json) => _$AdressDtoFromJson(json);
+
+  Adress toDomain() {
+    return Adress(
+        formtatedAdress: LocationAdress(formatted_address),
+        position: LatLng(latitude, longitude),
+        placeId: placeId);
+  }
+
+  factory AdressDto.fromDomain(Adress domainAdress) {
+    return AdressDto(
+      formatted_address: domainAdress.formtatedAdress.value.getOrElse(() => throw Error()),
+      latitude: domainAdress.position.latitude,
+      longitude: domainAdress.position.longitude,
+      placeId: domainAdress.placeId,
+    );
+  }
 }
 
 _predictedNamesFromjson(Map<dynamic, dynamic> json, String name) =>
@@ -65,6 +88,15 @@ abstract class PlaceDetailsDto implements _$PlaceDetailsDto {
       cordinate: LatLng(lat, lng),
     );
   }
+
+  factory PlaceDetailsDto.fromDomain(PlaceDetails placeDetails) {
+    return PlaceDetailsDto(
+      place_id: placeDetails.placeId,
+      formatted_address: placeDetails.formatedAdress,
+      lat: placeDetails.cordinate.latitude,
+      lng: placeDetails.cordinate.longitude,
+    );
+  }
 }
 
 distanceTextfromJson(Map<dynamic, dynamic> json, String name) =>
@@ -97,6 +129,8 @@ abstract class DirectionDetailsDto implements _$DirectionDetailsDto {
     List<PointLatLng> result = polylinePoints.decodePolyline(polyLinePoints);
     List<LatLng> domainpolyLines = result.map((e) => LatLng(e.latitude, e.longitude)).toList();
     return DirectionDetails(
+      origin: Adress(formtatedAdress: LocationAdress(''), position: LatLng(0, 0), placeId: ''),
+      destination: PlaceDetails(placeId: '', formatedAdress: '', cordinate: LatLng(0, 0)),
       distanceValue: distanceValue,
       distanceText: distanceText,
       durationValue: durationValue,

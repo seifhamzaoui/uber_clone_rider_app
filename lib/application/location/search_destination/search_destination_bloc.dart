@@ -15,7 +15,7 @@ part 'search_destination_bloc.freezed.dart';
 part 'search_destination_event.dart';
 part 'search_destination_state.dart';
 
-@Injectable()
+@Singleton()
 class SearchDestinationBloc extends Bloc<SearchDestinationEvent, SearchDestinationState> {
   ILocationRepository _locationRepository;
   MapControllerBloc _mapControllerBloc;

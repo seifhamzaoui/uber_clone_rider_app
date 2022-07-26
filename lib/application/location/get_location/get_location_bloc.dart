@@ -7,7 +7,7 @@ part 'get_location_event.dart';
 part 'get_location_state.dart';
 part 'get_location_bloc.freezed.dart';
 
-@Injectable()
+@Singleton()
 class GetLocationBloc extends Bloc<GetLocationEvent, GetLocationState> {
   GetLocationBloc() : super(_Initial()) {
     on<GetLocationEvent>((event, emit) async {
@@ -43,6 +43,12 @@ class GetLocationBloc extends Bloc<GetLocationEvent, GetLocationState> {
           }
           // When we reach here, permissions are granted and we can
           // continue accessing the position of the device.
+          // await emit.forEach<Position>(
+          //     Geolocator.getPositionStream(
+          //       locationSettings: LocationSettings(accuracy: LocationAccuracy.bestForNavigation),
+          //     ), onData: (position) {
+          //   return GetLocationState.positionlocated(position);
+          // });
           Position position = await Geolocator.getCurrentPosition(
             desiredAccuracy: LocationAccuracy.bestForNavigation,
           );

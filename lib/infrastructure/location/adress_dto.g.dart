@@ -8,11 +8,17 @@ part of 'adress_dto.dart';
 
 _$_AdressDto _$$_AdressDtoFromJson(Map<String, dynamic> json) => _$_AdressDto(
       formatted_address: json['formatted_address'] as String,
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
+      placeId: json['placeId'] as String,
     );
 
 Map<String, dynamic> _$$_AdressDtoToJson(_$_AdressDto instance) =>
     <String, dynamic>{
       'formatted_address': instance.formatted_address,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
+      'placeId': instance.placeId,
     };
 
 _$_PredictionAdressDto _$$_PredictionAdressDtoFromJson(

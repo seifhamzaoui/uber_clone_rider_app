@@ -24,6 +24,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +36,8 @@ mixin _$ValueFailure<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +48,8 @@ mixin _$ValueFailure<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +61,8 @@ mixin _$ValueFailure<T> {
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +73,8 @@ mixin _$ValueFailure<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +85,8 @@ mixin _$ValueFailure<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +187,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return empty(value);
   }
@@ -188,6 +202,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return empty?.call(value);
   }
@@ -201,6 +217,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -218,6 +236,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return empty(this);
   }
@@ -231,6 +251,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return empty?.call(this);
   }
@@ -244,6 +266,8 @@ class _$_Empty<T> with DiagnosticableTreeMixin implements _Empty<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -341,6 +365,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return tooLong(value);
   }
@@ -354,6 +380,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return tooLong?.call(value);
   }
@@ -367,6 +395,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (tooLong != null) {
@@ -384,6 +414,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return tooLong(this);
   }
@@ -397,6 +429,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return tooLong?.call(this);
   }
@@ -410,6 +444,8 @@ class _$_TooLong<T> with DiagnosticableTreeMixin implements _TooLong<T> {
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (tooLong != null) {
@@ -509,6 +545,8 @@ class _$_InvalidEmail<T>
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return invalidEmail(value);
   }
@@ -522,6 +560,8 @@ class _$_InvalidEmail<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return invalidEmail?.call(value);
   }
@@ -535,6 +575,8 @@ class _$_InvalidEmail<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -552,6 +594,8 @@ class _$_InvalidEmail<T>
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return invalidEmail(this);
   }
@@ -565,6 +609,8 @@ class _$_InvalidEmail<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return invalidEmail?.call(this);
   }
@@ -578,6 +624,8 @@ class _$_InvalidEmail<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -678,6 +726,8 @@ class _$_InvalidPassword<T>
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return invalidPassword(value);
   }
@@ -691,6 +741,8 @@ class _$_InvalidPassword<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return invalidPassword?.call(value);
   }
@@ -704,6 +756,8 @@ class _$_InvalidPassword<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -721,6 +775,8 @@ class _$_InvalidPassword<T>
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return invalidPassword(this);
   }
@@ -734,6 +790,8 @@ class _$_InvalidPassword<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return invalidPassword?.call(this);
   }
@@ -747,6 +805,8 @@ class _$_InvalidPassword<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidPassword != null) {
@@ -848,6 +908,8 @@ class _$_InvalidPhoneNumber<T>
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return invalidPhoneNumber(value);
   }
@@ -861,6 +923,8 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return invalidPhoneNumber?.call(value);
   }
@@ -874,6 +938,8 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -891,6 +957,8 @@ class _$_InvalidPhoneNumber<T>
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return invalidPhoneNumber(this);
   }
@@ -904,6 +972,8 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return invalidPhoneNumber?.call(this);
   }
@@ -917,6 +987,8 @@ class _$_InvalidPhoneNumber<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (invalidPhoneNumber != null) {
@@ -991,6 +1063,8 @@ class _$_AdressisLoading<T>
     required TResult Function(T value) invalidPassword,
     required TResult Function(T value) invalidPhoneNumber,
     required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
   }) {
     return adressisloading();
   }
@@ -1004,6 +1078,8 @@ class _$_AdressisLoading<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
   }) {
     return adressisloading?.call();
   }
@@ -1017,6 +1093,8 @@ class _$_AdressisLoading<T>
     TResult Function(T value)? invalidPassword,
     TResult Function(T value)? invalidPhoneNumber,
     TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
     required TResult orElse(),
   }) {
     if (adressisloading != null) {
@@ -1034,6 +1112,8 @@ class _$_AdressisLoading<T>
     required TResult Function(_InvalidPassword<T> value) invalidPassword,
     required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
     required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
   }) {
     return adressisloading(this);
   }
@@ -1047,6 +1127,8 @@ class _$_AdressisLoading<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
   }) {
     return adressisloading?.call(this);
   }
@@ -1060,6 +1142,8 @@ class _$_AdressisLoading<T>
     TResult Function(_InvalidPassword<T> value)? invalidPassword,
     TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
     TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
     required TResult orElse(),
   }) {
     if (adressisloading != null) {
@@ -1071,4 +1155,301 @@ class _$_AdressisLoading<T>
 
 abstract class _AdressisLoading<T> implements ValueFailure<T> {
   factory _AdressisLoading() = _$_AdressisLoading<T>;
+}
+
+/// @nodoc
+abstract class _$$_NoDriverCopyWith<T, $Res> {
+  factory _$$_NoDriverCopyWith(
+          _$_NoDriver<T> value, $Res Function(_$_NoDriver<T>) then) =
+      __$$_NoDriverCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$_NoDriverCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$_NoDriverCopyWith<T, $Res> {
+  __$$_NoDriverCopyWithImpl(
+      _$_NoDriver<T> _value, $Res Function(_$_NoDriver<T>) _then)
+      : super(_value, (v) => _then(v as _$_NoDriver<T>));
+
+  @override
+  _$_NoDriver<T> get _value => super._value as _$_NoDriver<T>;
+}
+
+/// @nodoc
+
+class _$_NoDriver<T> with DiagnosticableTreeMixin implements _NoDriver<T> {
+  _$_NoDriver();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.noDriver()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'ValueFailure<$T>.noDriver'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoDriver<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) empty,
+    required TResult Function(T value) tooLong,
+    required TResult Function(T value) invalidEmail,
+    required TResult Function(T value) invalidPassword,
+    required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
+  }) {
+    return noDriver();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
+  }) {
+    return noDriver?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
+    required TResult orElse(),
+  }) {
+    if (noDriver != null) {
+      return noDriver();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_TooLong<T> value) tooLong,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_InvalidPassword<T> value) invalidPassword,
+    required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
+  }) {
+    return noDriver(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
+  }) {
+    return noDriver?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
+    required TResult orElse(),
+  }) {
+    if (noDriver != null) {
+      return noDriver(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoDriver<T> implements ValueFailure<T> {
+  factory _NoDriver() = _$_NoDriver<T>;
+}
+
+/// @nodoc
+abstract class _$$_RideCompletedCopyWith<T, $Res> {
+  factory _$$_RideCompletedCopyWith(
+          _$_RideCompleted<T> value, $Res Function(_$_RideCompleted<T>) then) =
+      __$$_RideCompletedCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$_RideCompletedCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements _$$_RideCompletedCopyWith<T, $Res> {
+  __$$_RideCompletedCopyWithImpl(
+      _$_RideCompleted<T> _value, $Res Function(_$_RideCompleted<T>) _then)
+      : super(_value, (v) => _then(v as _$_RideCompleted<T>));
+
+  @override
+  _$_RideCompleted<T> get _value => super._value as _$_RideCompleted<T>;
+}
+
+/// @nodoc
+
+class _$_RideCompleted<T>
+    with DiagnosticableTreeMixin
+    implements _RideCompleted<T> {
+  _$_RideCompleted();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.rideCompleted()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'ValueFailure<$T>.rideCompleted'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_RideCompleted<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) empty,
+    required TResult Function(T value) tooLong,
+    required TResult Function(T value) invalidEmail,
+    required TResult Function(T value) invalidPassword,
+    required TResult Function(T value) invalidPhoneNumber,
+    required TResult Function() adressisloading,
+    required TResult Function() noDriver,
+    required TResult Function() rideCompleted,
+  }) {
+    return rideCompleted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
+  }) {
+    return rideCompleted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? empty,
+    TResult Function(T value)? tooLong,
+    TResult Function(T value)? invalidEmail,
+    TResult Function(T value)? invalidPassword,
+    TResult Function(T value)? invalidPhoneNumber,
+    TResult Function()? adressisloading,
+    TResult Function()? noDriver,
+    TResult Function()? rideCompleted,
+    required TResult orElse(),
+  }) {
+    if (rideCompleted != null) {
+      return rideCompleted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Empty<T> value) empty,
+    required TResult Function(_TooLong<T> value) tooLong,
+    required TResult Function(_InvalidEmail<T> value) invalidEmail,
+    required TResult Function(_InvalidPassword<T> value) invalidPassword,
+    required TResult Function(_InvalidPhoneNumber<T> value) invalidPhoneNumber,
+    required TResult Function(_AdressisLoading<T> value) adressisloading,
+    required TResult Function(_NoDriver<T> value) noDriver,
+    required TResult Function(_RideCompleted<T> value) rideCompleted,
+  }) {
+    return rideCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
+  }) {
+    return rideCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Empty<T> value)? empty,
+    TResult Function(_TooLong<T> value)? tooLong,
+    TResult Function(_InvalidEmail<T> value)? invalidEmail,
+    TResult Function(_InvalidPassword<T> value)? invalidPassword,
+    TResult Function(_InvalidPhoneNumber<T> value)? invalidPhoneNumber,
+    TResult Function(_AdressisLoading<T> value)? adressisloading,
+    TResult Function(_NoDriver<T> value)? noDriver,
+    TResult Function(_RideCompleted<T> value)? rideCompleted,
+    required TResult orElse(),
+  }) {
+    if (rideCompleted != null) {
+      return rideCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RideCompleted<T> implements ValueFailure<T> {
+  factory _RideCompleted() = _$_RideCompleted<T>;
 }

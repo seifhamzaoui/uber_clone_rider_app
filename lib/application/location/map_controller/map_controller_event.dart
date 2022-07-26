@@ -8,4 +8,5 @@ class MapControllerEvent with _$MapControllerEvent {
   const factory MapControllerEvent.currentPositioninit(Position position) = _CurrentPostioninit;
   const factory MapControllerEvent.directionFetched(
       {required PlaceDetails destination, required Adress origin}) = _directionFetched;
+  const factory MapControllerEvent.reseted() = _Reseted;
 }

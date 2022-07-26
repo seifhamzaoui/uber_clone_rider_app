@@ -479,6 +479,8 @@ abstract class _PlaceDetails implements PlaceDetails {
 
 /// @nodoc
 mixin _$DirectionDetails {
+  PlaceDetails get destination => throw _privateConstructorUsedError;
+  Adress get origin => throw _privateConstructorUsedError;
   double get distanceValue => throw _privateConstructorUsedError;
   String get distanceText => throw _privateConstructorUsedError;
   double get durationValue => throw _privateConstructorUsedError;
@@ -496,11 +498,16 @@ abstract class $DirectionDetailsCopyWith<$Res> {
           DirectionDetails value, $Res Function(DirectionDetails) then) =
       _$DirectionDetailsCopyWithImpl<$Res>;
   $Res call(
-      {double distanceValue,
+      {PlaceDetails destination,
+      Adress origin,
+      double distanceValue,
       String distanceText,
       double durationValue,
       String durationText,
       List<LatLng> polyLinePoints});
+
+  $PlaceDetailsCopyWith<$Res> get destination;
+  $AdressCopyWith<$Res> get origin;
 }
 
 /// @nodoc
@@ -514,6 +521,8 @@ class _$DirectionDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? destination = freezed,
+    Object? origin = freezed,
     Object? distanceValue = freezed,
     Object? distanceText = freezed,
     Object? durationValue = freezed,
@@ -521,6 +530,14 @@ class _$DirectionDetailsCopyWithImpl<$Res>
     Object? polyLinePoints = freezed,
   }) {
     return _then(_value.copyWith(
+      destination: destination == freezed
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as PlaceDetails,
+      origin: origin == freezed
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as Adress,
       distanceValue: distanceValue == freezed
           ? _value.distanceValue
           : distanceValue // ignore: cast_nullable_to_non_nullable
@@ -543,6 +560,20 @@ class _$DirectionDetailsCopyWithImpl<$Res>
               as List<LatLng>,
     ));
   }
+
+  @override
+  $PlaceDetailsCopyWith<$Res> get destination {
+    return $PlaceDetailsCopyWith<$Res>(_value.destination, (value) {
+      return _then(_value.copyWith(destination: value));
+    });
+  }
+
+  @override
+  $AdressCopyWith<$Res> get origin {
+    return $AdressCopyWith<$Res>(_value.origin, (value) {
+      return _then(_value.copyWith(origin: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -553,11 +584,18 @@ abstract class _$$_DirectionDetailsCopyWith<$Res>
       __$$_DirectionDetailsCopyWithImpl<$Res>;
   @override
   $Res call(
-      {double distanceValue,
+      {PlaceDetails destination,
+      Adress origin,
+      double distanceValue,
       String distanceText,
       double durationValue,
       String durationText,
       List<LatLng> polyLinePoints});
+
+  @override
+  $PlaceDetailsCopyWith<$Res> get destination;
+  @override
+  $AdressCopyWith<$Res> get origin;
 }
 
 /// @nodoc
@@ -573,6 +611,8 @@ class __$$_DirectionDetailsCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? destination = freezed,
+    Object? origin = freezed,
     Object? distanceValue = freezed,
     Object? distanceText = freezed,
     Object? durationValue = freezed,
@@ -580,6 +620,14 @@ class __$$_DirectionDetailsCopyWithImpl<$Res>
     Object? polyLinePoints = freezed,
   }) {
     return _then(_$_DirectionDetails(
+      destination: destination == freezed
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as PlaceDetails,
+      origin: origin == freezed
+          ? _value.origin
+          : origin // ignore: cast_nullable_to_non_nullable
+              as Adress,
       distanceValue: distanceValue == freezed
           ? _value.distanceValue
           : distanceValue // ignore: cast_nullable_to_non_nullable
@@ -606,15 +654,22 @@ class __$$_DirectionDetailsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DirectionDetails implements _DirectionDetails {
+class _$_DirectionDetails extends _DirectionDetails {
   const _$_DirectionDetails(
-      {required this.distanceValue,
+      {required this.destination,
+      required this.origin,
+      required this.distanceValue,
       required this.distanceText,
       required this.durationValue,
       required this.durationText,
       required final List<LatLng> polyLinePoints})
-      : _polyLinePoints = polyLinePoints;
+      : _polyLinePoints = polyLinePoints,
+        super._();
 
+  @override
+  final PlaceDetails destination;
+  @override
+  final Adress origin;
   @override
   final double distanceValue;
   @override
@@ -632,7 +687,7 @@ class _$_DirectionDetails implements _DirectionDetails {
 
   @override
   String toString() {
-    return 'DirectionDetails(distanceValue: $distanceValue, distanceText: $distanceText, durationValue: $durationValue, durationText: $durationText, polyLinePoints: $polyLinePoints)';
+    return 'DirectionDetails(destination: $destination, origin: $origin, distanceValue: $distanceValue, distanceText: $distanceText, durationValue: $durationValue, durationText: $durationText, polyLinePoints: $polyLinePoints)';
   }
 
   @override
@@ -640,6 +695,9 @@ class _$_DirectionDetails implements _DirectionDetails {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DirectionDetails &&
+            const DeepCollectionEquality()
+                .equals(other.destination, destination) &&
+            const DeepCollectionEquality().equals(other.origin, origin) &&
             const DeepCollectionEquality()
                 .equals(other.distanceValue, distanceValue) &&
             const DeepCollectionEquality()
@@ -655,6 +713,8 @@ class _$_DirectionDetails implements _DirectionDetails {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(destination),
+      const DeepCollectionEquality().hash(origin),
       const DeepCollectionEquality().hash(distanceValue),
       const DeepCollectionEquality().hash(distanceText),
       const DeepCollectionEquality().hash(durationValue),
@@ -667,14 +727,21 @@ class _$_DirectionDetails implements _DirectionDetails {
       __$$_DirectionDetailsCopyWithImpl<_$_DirectionDetails>(this, _$identity);
 }
 
-abstract class _DirectionDetails implements DirectionDetails {
+abstract class _DirectionDetails extends DirectionDetails {
   const factory _DirectionDetails(
-      {required final double distanceValue,
+      {required final PlaceDetails destination,
+      required final Adress origin,
+      required final double distanceValue,
       required final String distanceText,
       required final double durationValue,
       required final String durationText,
       required final List<LatLng> polyLinePoints}) = _$_DirectionDetails;
+  const _DirectionDetails._() : super._();
 
+  @override
+  PlaceDetails get destination => throw _privateConstructorUsedError;
+  @override
+  Adress get origin => throw _privateConstructorUsedError;
   @override
   double get distanceValue => throw _privateConstructorUsedError;
   @override

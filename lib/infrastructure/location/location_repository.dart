@@ -69,6 +69,7 @@ class LocationRepository implements ILocationRepository {
         origin: origin,
       );
       DirectionDetails directionDetails = directionDetailsDto.toDomain();
+      directionDetails = directionDetails.copyWith(destination: destination, origin: origin);
       return right(directionDetails);
     } on PlatformException catch (e) {
       return left(LocationFailure.notFound());

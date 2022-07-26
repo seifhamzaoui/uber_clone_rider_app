@@ -21,6 +21,9 @@ AdressDto _$AdressDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AdressDto {
   String get formatted_address => throw _privateConstructorUsedError;
+  double get latitude => throw _privateConstructorUsedError;
+  double get longitude => throw _privateConstructorUsedError;
+  String get placeId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -32,7 +35,11 @@ mixin _$AdressDto {
 abstract class $AdressDtoCopyWith<$Res> {
   factory $AdressDtoCopyWith(AdressDto value, $Res Function(AdressDto) then) =
       _$AdressDtoCopyWithImpl<$Res>;
-  $Res call({String formatted_address});
+  $Res call(
+      {String formatted_address,
+      double latitude,
+      double longitude,
+      String placeId});
 }
 
 /// @nodoc
@@ -46,11 +53,26 @@ class _$AdressDtoCopyWithImpl<$Res> implements $AdressDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? formatted_address = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? placeId = freezed,
   }) {
     return _then(_value.copyWith(
       formatted_address: formatted_address == freezed
           ? _value.formatted_address
           : formatted_address // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      placeId: placeId == freezed
+          ? _value.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -62,7 +84,11 @@ abstract class _$$_AdressDtoCopyWith<$Res> implements $AdressDtoCopyWith<$Res> {
           _$_AdressDto value, $Res Function(_$_AdressDto) then) =
       __$$_AdressDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String formatted_address});
+  $Res call(
+      {String formatted_address,
+      double latitude,
+      double longitude,
+      String placeId});
 }
 
 /// @nodoc
@@ -78,11 +104,26 @@ class __$$_AdressDtoCopyWithImpl<$Res> extends _$AdressDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? formatted_address = freezed,
+    Object? latitude = freezed,
+    Object? longitude = freezed,
+    Object? placeId = freezed,
   }) {
     return _then(_$_AdressDto(
       formatted_address: formatted_address == freezed
           ? _value.formatted_address
           : formatted_address // ignore: cast_nullable_to_non_nullable
+              as String,
+      latitude: latitude == freezed
+          ? _value.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: longitude == freezed
+          ? _value.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      placeId: placeId == freezed
+          ? _value.placeId
+          : placeId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -90,18 +131,29 @@ class __$$_AdressDtoCopyWithImpl<$Res> extends _$AdressDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AdressDto implements _AdressDto {
-  const _$_AdressDto({required this.formatted_address});
+class _$_AdressDto extends _AdressDto {
+  const _$_AdressDto(
+      {required this.formatted_address,
+      required this.latitude,
+      required this.longitude,
+      required this.placeId})
+      : super._();
 
   factory _$_AdressDto.fromJson(Map<String, dynamic> json) =>
       _$$_AdressDtoFromJson(json);
 
   @override
   final String formatted_address;
+  @override
+  final double latitude;
+  @override
+  final double longitude;
+  @override
+  final String placeId;
 
   @override
   String toString() {
-    return 'AdressDto(formatted_address: $formatted_address)';
+    return 'AdressDto(formatted_address: $formatted_address, latitude: $latitude, longitude: $longitude, placeId: $placeId)';
   }
 
   @override
@@ -110,13 +162,20 @@ class _$_AdressDto implements _AdressDto {
         (other.runtimeType == runtimeType &&
             other is _$_AdressDto &&
             const DeepCollectionEquality()
-                .equals(other.formatted_address, formatted_address));
+                .equals(other.formatted_address, formatted_address) &&
+            const DeepCollectionEquality().equals(other.latitude, latitude) &&
+            const DeepCollectionEquality().equals(other.longitude, longitude) &&
+            const DeepCollectionEquality().equals(other.placeId, placeId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(formatted_address));
+      runtimeType,
+      const DeepCollectionEquality().hash(formatted_address),
+      const DeepCollectionEquality().hash(latitude),
+      const DeepCollectionEquality().hash(longitude),
+      const DeepCollectionEquality().hash(placeId));
 
   @JsonKey(ignore: true)
   @override
@@ -129,15 +188,25 @@ class _$_AdressDto implements _AdressDto {
   }
 }
 
-abstract class _AdressDto implements AdressDto {
-  const factory _AdressDto({required final String formatted_address}) =
-      _$_AdressDto;
+abstract class _AdressDto extends AdressDto {
+  const factory _AdressDto(
+      {required final String formatted_address,
+      required final double latitude,
+      required final double longitude,
+      required final String placeId}) = _$_AdressDto;
+  const _AdressDto._() : super._();
 
   factory _AdressDto.fromJson(Map<String, dynamic> json) =
       _$_AdressDto.fromJson;
 
   @override
   String get formatted_address => throw _privateConstructorUsedError;
+  @override
+  double get latitude => throw _privateConstructorUsedError;
+  @override
+  double get longitude => throw _privateConstructorUsedError;
+  @override
+  String get placeId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AdressDtoCopyWith<_$_AdressDto> get copyWith =>

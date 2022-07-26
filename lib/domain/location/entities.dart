@@ -33,12 +33,20 @@ abstract class PlaceDetails with _$PlaceDetails {
 }
 
 @freezed
-abstract class DirectionDetails with _$DirectionDetails {
+abstract class DirectionDetails implements _$DirectionDetails {
+  const DirectionDetails._();
   const factory DirectionDetails({
+    required PlaceDetails destination,
+    required Adress origin,
     required double distanceValue,
     required String distanceText,
     required double durationValue,
     required String durationText,
     required List<LatLng> polyLinePoints,
   }) = _DirectionDetails;
+
+  double get price =>
+      (((distanceValue / 1000 * 15 < 200 ? 200 : distanceValue / 1000 * 15) / 10).round() * 10)
+          .truncateToDouble();
+  double get distanceKm => distanceValue / 1000;
 }

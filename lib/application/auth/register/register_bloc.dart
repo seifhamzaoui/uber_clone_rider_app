@@ -12,7 +12,7 @@ part 'register_bloc.freezed.dart';
 part 'register_event.dart';
 part 'register_state.dart';
 
-@Injectable()
+@Singleton()
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   IAuthRepository _authRepository;
   RegisterBloc(

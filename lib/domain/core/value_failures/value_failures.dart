@@ -11,4 +11,6 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   factory ValueFailure.invalidPassword(T value) = _InvalidPassword;
   factory ValueFailure.invalidPhoneNumber(T value) = _InvalidPhoneNumber;
   factory ValueFailure.adressisloading() = _AdressisLoading;
+  factory ValueFailure.noDriver() = _NoDriver;
+  factory ValueFailure.rideCompleted() = _RideCompleted;
 }

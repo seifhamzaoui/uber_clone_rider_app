@@ -78,6 +78,7 @@ class AuthRepository implements IAuthRepository {
     Stream<User?> stream = _auth.authStateChanges();
     stream = stream.onErrorReturn(null);
     await for (var user in stream) {
+      print(user);
       if (user == null)
         yield none<UserEntity>();
       else {
@@ -87,7 +88,6 @@ class AuthRepository implements IAuthRepository {
         Map<String, dynamic> userJson = jsonDecode(jsonEncode(snapshot.value));
         RegisterDto userDto = RegisterDto.fromJson(userJson);
         userDto = userDto.copyWith(userId: userId);
-        print(userDto.toString());
         UserEntity userEntity = userDto.toUserEntity();
         yield some(userEntity);
       }

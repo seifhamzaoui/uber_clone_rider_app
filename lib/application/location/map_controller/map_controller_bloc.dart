@@ -18,7 +18,7 @@ part 'map_controller_bloc.freezed.dart';
 part 'map_controller_event.dart';
 part 'map_controller_state.dart';
 
-@Injectable()
+@Singleton()
 class MapControllerBloc extends Bloc<MapControllerEvent, MapControllerState> {
   GetLocationBloc _getLocationBloc;
   ILocationRepository _locationRepository;
@@ -67,10 +67,52 @@ class MapControllerBloc extends Bloc<MapControllerEvent, MapControllerState> {
               jointType: JointType.bevel,
               visible: true,
             );
+            print(directionDetails);
             emit(state.copyWith(
               polyline: some(polyLine),
+              directionDetailsOption: some(directionDetails),
             ));
           });
+
+          LatLngBounds bounds;
+          LatLng pickup = e.origin.position;
+          LatLng destin = e.destination.cordinate;
+          if (pickup.latitude > destin.latitude && pickup.longitude > destin.longitude) {
+            bounds = LatLngBounds(
+              northeast: pickup,
+              southwest: destin,
+            );
+          } else if (pickup.latitude < destin.latitude && pickup.longitude < destin.longitude) {
+            bounds = LatLngBounds(
+              northeast: destin,
+              southwest: pickup,
+            );
+          } else if (pickup.latitude < destin.latitude && pickup.longitude < destin.longitude) {
+            bounds = LatLngBounds(
+              northeast: LatLng(destin.latitude, pickup.longitude),
+              southwest: LatLng(pickup.latitude, destin.longitude),
+            );
+          } else {
+            bounds = LatLngBounds(
+              northeast: LatLng(pickup.latitude, destin.longitude),
+              southwest: LatLng(destin.latitude, pickup.longitude),
+            );
+          }
+          state.mapController?.animateCamera(
+            CameraUpdate.newLatLngBounds(
+              bounds,
+              70,
+            ),
+          );
+        },
+        reseted: (e) async {
+          emit(
+            state.copyWith(
+              polyline: none(),
+              currentposition: null,
+              directionDetailsOption: none(),
+            ),
+          );
         },
       );
     });

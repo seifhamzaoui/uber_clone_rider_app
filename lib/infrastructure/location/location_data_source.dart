@@ -36,7 +36,12 @@ class LocationFromGeoCoding {
     if (response.statusCode == 200) {
       final jsonString = jsonEncode(response.data);
       final jsonMap = jsonDecode(jsonString);
-      AdressDto adressDto = AdressDto.fromJson(jsonMap['results'][0]);
+      AdressDto adressDto = AdressDto(
+        formatted_address: jsonMap['results'][0]['formatted_address'],
+        latitude: 0,
+        longitude: 0,
+        placeId: '',
+      );
 
       return adressDto;
     } else {

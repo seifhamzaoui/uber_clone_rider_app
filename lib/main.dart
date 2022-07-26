@@ -12,9 +12,9 @@ void main() async {
   if (defaultTargetPlatform == TargetPlatform.android) {
     AndroidGoogleMapsFlutter.useAndroidViewSurface = true;
   }
-  configureDependencies();
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  configureDependencies();
   runApp(App());
 }

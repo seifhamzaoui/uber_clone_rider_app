@@ -22,4 +22,12 @@ abstract class RegisterDto implements _$RegisterDto {
         fullName: FullName(fullName),
         phoneNumber: PhoneNumber(phone),
       );
+  factory RegisterDto.fromUserEntity(UserEntity user) {
+    return RegisterDto(
+      fullName: user.fullName.getOrCrash(),
+      email: user.emailAdress.getOrCrash(),
+      phone: user.phoneNumber.getOrCrash(),
+      userId: user.uid.getOrCrash(),
+    );
+  }
 }
